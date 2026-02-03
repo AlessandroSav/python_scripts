@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --time=10:00:00 # 10 hours
+#SBATCH --job-name=pdf_precip
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2 # Number of CPU cores (do I actually need 2?)
+#SBATCH --mem=64GB  # Memory allocation
+
+
+set -e  # Exit immediately if a command exits with a non-zero status
+
+cd /home/paaa/ || { echo "Failed to change directory to /home/paaa"; exit 1; }
+
+# Activate the virtual environment
+source venv/test_env/bin/activate || { echo "Failed to activate virtual environment"; exit 1; }
+
+
+
+echo "#### Running PDF precipitation ####"
+python3 -u python_scripts/windbias/pdf_precipitation_tropics.py 
+
+echo "Done_______"

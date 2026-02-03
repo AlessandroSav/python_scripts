@@ -1,0 +1,126 @@
+[ECMWF-INFO -sbatch] - -------------------------------------------------------------------------------------
+[ECMWF-INFO -sbatch] -  This is the ECMWF jobfilter
+[ECMWF-INFO -sbatch] -  +++ Please report issues using the Support portal +++
+[ECMWF-INFO -sbatch] -  +++ https://support.ecmwf.int                     +++
+[ECMWF-INFO -sbatch] -  /usr/local/bin/ecsbatch: size: 53801, mtime: Tue Nov 25 12:31:30 2025
+[ECMWF-INFO -sbatch] - -------------------------------------------------------------------------------------
+[ECMWF-INFO -sbatch] - Time at submit: Mon Feb  2 11:27:59 2026 (1770031679.864061) on ac6-100.bullx:/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts
+[ECMWF-INFO -sbatch] - --- SLURM VARIABLES ---
+[ECMWF-INFO -sbatch] - EC_CLUSTER=ac
+[ECMWF-INFO -sbatch] - SLURM_EXPORT_ENV=ALL
+[ECMWF-INFO -sbatch] - SBATCH_EXPORT=NONE
+[ECMWF-INFO -sbatch] - -----------------------
+[ECMWF-INFO -sbatch] - jobscript: /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/run_create_dales_input.sh
+[ECMWF-INFO -sbatch] - --- SCRIPT OPTIONS ---
+[ECMWF-INFO -sbatch] - #SBATCH --job-name=create_dales_input
+[ECMWF-INFO -sbatch] - #SBATCH --time=04:00:00
+[ECMWF-INFO -sbatch] - #SBATCH --mem=64G
+[ECMWF-INFO -sbatch] - #SBATCH --ntasks=1
+[ECMWF-INFO -sbatch] - #SBATCH --cpus-per-task=4
+[ECMWF-INFO -sbatch] - -----------------------
+[ECMWF-INFO -sbatch] - --- POST-PROCESSED OPTIONS ---
+[ECMWF-INFO -sbatch] - ARG --positional=['run_create_dales_input.sh']
+[ECMWF-INFO -sbatch] - ARG --cpus_per_task=4
+[ECMWF-INFO -sbatch] - ARG --job_name=create_dales_input
+[ECMWF-INFO -sbatch] - ARG --ntasks=1
+[ECMWF-INFO -sbatch] - ARG --time=04:00:00
+[ECMWF-INFO -sbatch] - ARG --mem=64G
+[ECMWF-INFO -sbatch] - ------------------------------
+[ECMWF-INFO -sbatch] - No qos requested, assuming qos=nf
+[ECMWF-INFO -sbatch] - jobtag: paaa-create_dales_input-1x4-/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/slurm-_JOBID_.out
+[ECMWF-INFO -sbatch] - ['/usr/bin/sbatch', '--cpus-per-task=4', '--job-name=create_dales_input', '--ntasks=1', '--time=04:00:00', '--mem=64G', '--qos=nf', '--licenses=h2resw01', '--export=EC_user_time_limit=04:00:00', '/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/run_create_dales_input.sh']
+[ECMWF-INFO -sbatch] - sbatch executed on ac
+[ECMWF-INFO -sbatch] - Job queued on ac using method local
+[ECMWF-INFO -sbatch] - Submitted batch job 31191417
+[ECMWF-INFO -ecprofile] /usr/bin/bash NON_INTERACTIVE on ac6-170 at 20260202_112807.764, PID: 2114220, JOBID: 31191417
+[ECMWF-INFO -ecprofile] $SCRATCH=/ec/res4/scratch/paaa
+[ECMWF-INFO -ecprofile] $PERM=/perm/paaa
+[ECMWF-INFO -ecprofile] $HPCPERM=/ec/res4/hpcperm/paaa
+[ECMWF-INFO -ecprofile] $TMPDIR=/etc/ecmwf/ssd/ssd1/tmpdirs/paaa.31191417
+[ECMWF-INFO -ecprofile] $SCRATCHDIR=/ec/res4/scratchdir/paaa/1/31191417
+Starting create_dales_input.py on ac6-170.bullx at Mon Feb  2 11:28:07 UTC 2026
+**** 
+ Grib already exists for iyw7 at Cabauw surface.
+**** 
+ Grib already exists for iyw7 at Cabauw ml.
+**** 
+ Grib already exists for iyw7 at Cabauw lnsp.
+Opening data...
+De-accumulating variables...
+Processing step 1/25
+Processing step 2/25
+Processing step 3/25
+Processing step 4/25
+Processing step 5/25
+Processing step 6/25
+Processing step 7/25
+Processing step 8/25
+Processing step 9/25
+Processing step 10/25
+Processing step 11/25
+Processing step 12/25
+Processing step 13/25
+Processing step 14/25
+Processing step 15/25
+Processing step 16/25
+Processing step 17/25
+Processing step 18/25
+Processing step 19/25
+Processing step 20/25
+Processing step 21/25
+Processing step 22/25
+Processing step 23/25
+Processing step 24/25
+Processing step 25/25
+Traceback (most recent call last):
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/create_dales_input.py", line 438, in <module>
+    ds = xr.merge([ds_srf, ds_z])
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/merge.py", line 976, in merge
+    merge_result = merge_core(
+                   ^^^^^^^^^^^
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/merge.py", line 692, in merge_core
+    aligned = deep_align(
+              ^^^^^^^^^^^
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/alignment.py", line 947, in deep_align
+    aligned = align(
+              ^^^^^^
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/alignment.py", line 883, in align
+    aligner.align()
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/alignment.py", line 575, in align
+    self.align_indexes()
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/alignment.py", line 429, in align_indexes
+    joined_index = joiner(matching_indexes)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/etc/ecmwf/nfs/dh1_home_a/paaa/venv/test_env/lib/python3.11/site-packages/xarray/core/indexes.py", line 827, in join
+    coord_dtype = np.result_type(self.coord_dtype, other.coord_dtype)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.exceptions.DTypePromotionError: The DType <class 'numpy.dtypes.TimeDelta64DType'> could not be promoted by <class 'numpy.dtypes.Float64DType'>. This means that no common DType exists for the given inputs. For example they cannot be stored in a single array unless the dtype is `object`. The full list of DTypes is: (<class 'numpy.dtypes.TimeDelta64DType'>, <class 'numpy.dtypes.Float64DType'>)
+Finished create_dales_input.py with exit code 1 at Mon Feb  2 14:24:22 UTC 2026
+[ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
+[ECMWF-INFO -ecepilog] This is the ECMWF job Epilogue
+[ECMWF-INFO -ecepilog] +++ Please report issues using the Support portal +++
+[ECMWF-INFO -ecepilog] +++ https://support.ecmwf.int                     +++
+[ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
+[ECMWF-INFO -ecepilog] Run at 2026-02-02T14:24:22 on ac
+[ECMWF-INFO -ecepilog] JobName                   : create_dales_input
+[ECMWF-INFO -ecepilog] JobID                     : 31191417
+[ECMWF-INFO -ecepilog] Submit                    : 2026-02-02T11:27:59
+[ECMWF-INFO -ecepilog] Start                     : 2026-02-02T11:28:04
+[ECMWF-INFO -ecepilog] End                       : 2026-02-02T14:24:22
+[ECMWF-INFO -ecepilog] QueuedTime                : 5.0
+[ECMWF-INFO -ecepilog] ElapsedRaw                : 10578
+[ECMWF-INFO -ecepilog] ExitCode                  : 1:0
+[ECMWF-INFO -ecepilog] DerivedExitCode           : 0:0
+[ECMWF-INFO -ecepilog] State                     : FAILED
+[ECMWF-INFO -ecepilog] Account                   : ecrdmopp
+[ECMWF-INFO -ecepilog] QOS                       : nf
+[ECMWF-INFO -ecepilog] User                      : paaa
+[ECMWF-INFO -ecepilog] StdOut                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/slurm-31191417.out
+[ECMWF-INFO -ecepilog] StdErr                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/slurm-31191417.out
+[ECMWF-INFO -ecepilog] NNodes                    : 1
+[ECMWF-INFO -ecepilog] NCPUS                     : 4
+[ECMWF-INFO -ecepilog] SBU                       : 100.277
+[ECMWF-INFO -ecepilog] jobtag                    : paaa-create_dales_input-1x4-/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/slurm-_JOBID_.out
+[ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
+
