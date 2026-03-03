@@ -1,0 +1,178 @@
+#!/bin/bash
+#SBATCH --job-name=mars_automated
+#SBATCH --time=2-00:00:00 # 2 days
+
+# This will create two .nc files for each day (one for the first 12 hours and one for the second half of the day)
+# with all the variables. Surface variables are separate from profiles.
+# The day extracted is day 2 forecast.
+
+module load eclib
+module load ecmwf-toolbox
+
+########################################
+# Default values
+subdomain=""
+exp_id=""
+exp_name=""
+exp_type=""
+levels=""
+ldiagflx=""
+ldiagflx_49r2b=""
+ldiagghg=""
+lbud23=""
+lead_time=""
+stream="" 
+# Manual argument parsing
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --subdomain) subdomain="$2"; shift 2 ;;
+    --exp_id) exp_id="$2"; shift 2 ;;
+    --exp_name) exp_name="$2"; shift 2 ;;
+    --exp_type) exp_type="$2"; shift 2 ;;
+    --levels) levels="$2"; shift 2 ;;
+    --ldiagflx) ldiagflx="$2"; shift 2 ;;
+    --ldiagflx_49r2b) ldiagflx_49r2b="$2"; shift 2 ;;
+    --ldiagghg) ldiagghg="$2"; shift 2 ;;
+    --lbud23) lbud23="$2"; shift 2 ;;
+    --lead_time) lead_time="$2"; shift 2 ;;
+    --stream) stream="$2"; shift 2 ;;
+    *)
+      echo "Unknown option: $1"
+      exit 1
+      ;;
+  esac
+done
+base_dir="/scratch/paaa/IFS/${subdomain}"
+grid='0.2/0.2'
+year=2022
+
+# Debug prints
+echo "base_dir: $base_dir"
+echo "subdomain: $subdomain"
+echo "exp_id: $exp_id"
+echo "exp_name: $exp_name"
+echo "exp_type: $exp_type"
+echo "levels: $levels"
+echo "ldiagflx: $ldiagflx"
+echo "ldiagflx_49r2b: $ldiagflx_49r2b"
+echo "ldiagghg: $ldiagghg"
+echo "lbud23: $lbud23"
+echo "lead_time: $lead_time"
+echo "grid: $grid"
+echo "year: $year"
+echo "stream: $stream"
+
+########################################
+# Area selection
+if [[ "$subdomain" == "netherlands" ]]; then
+  area='52.22/4.68/51.72/5.75'  # Cabauw + Loobos
+  echo "area: $area"
+elif [[ "$subdomain" == "Cabauw" ]]; then
+  area='52.22/4.68/51.72/5.18'  # Cabauw only
+  echo "area: $area"
+else
+  echo "subdomain not known. Extracting around Cabauw instead"
+  area='52.22/4.68/51.72/5.18'
+  echo "area: $area"
+fi
+
+########################################
+# Variable selection
+param_sfc='66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109'
+if [[ "$ldiagghg" == "True" ]]; then
+  param_ml='75/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026'
+elif [[ "$ldiagflx" == "True" ]]; then
+  param_ml='75/212001/212002/212003/212004/212005/212006/212007/212008/212009/212010/212011/212012/212013/212014/212015/212016/212017/212018/212019/212020/212021/212022/212023/212024/212025/212026/212027/212028/212029/212030/212031/212032/212033/212034/212035/212036/212037/212038/212039/212040/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026'
+  echo "param_ml: $param_ml"
+elif [[ "$ldiagflx_49r2b" == "True" ]]; then
+  param_ml='75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026'
+  param_sfc+='/216090'
+  echo "param_ml: $param_ml"
+elif [[ "$lbud23" == "True" ]]; then
+  param_ml='91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115'
+else
+  echo "No special 3D diagnostic switch set (ldiagghg, ldiagflx, or lbud23)"
+  param_ml='75/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026'
+
+fi
+
+########################################
+# End here during debugging
+
+# Create the directory if it doesn't exist
+mkdir -p "${base_dir}/${exp_id}"
+# Move into the directory
+cd "${base_dir}/${exp_id}" || { echo "Failed to cd into ${base_dir}/${exp_id}"; exit 1; }
+echo "Find your raw data in ${base_dir}/${exp_id}"
+
+# Loop through the days
+for d in 0515 0516 0517 0518 0519 0520; do
+# for d in 0515 0516 0517; do
+# for d in 0518 0519 0520; do
+  for t in ${lead_time}  $((lead_time + 12)); do 
+
+    # Start fresh mm files
+    > mm_ml
+    > mm_sfc
+
+    # Check for model level retrieval
+    if [[ " $levels " =~ " ml " ]]; then
+      echo "Model level selected"
+      cat <<EOF >> mm_ml
+# First retrieve profiles
+retrieve,
+anoffset=9,
+class=rd,
+date=${year}${d},
+expver=${exp_id},
+levelist=1/50/51/52/53/54/55/56/57/58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/130/131/132/133/134/135/136/137,
+levtype=ml,
+param=${param_ml},
+step=$(($t+0))/$(($t+1))/$(($t+2))/$(($t+3))/$(($t+4))/$(($t+5))/$(($t+6))/$(($t+7))/$(($t+8))/$(($t+9))/$(($t+10))/$(($t+11))/$(($t+12)),
+stream=${stream},
+time=00:00:00,
+type=fc,
+grid=${grid},
+area=${area},
+target="mars_ml_${exp_name}.grb"
+EOF
+      # Call MARS
+      mars mm_ml
+      # Convert to netCDF if retrieved
+      if [[ -f mars_ml_${exp_name}.grb ]]; then
+        grib_to_netcdf -R ${year}${d} mars_ml_${exp_name}.grb -o ${exp_id}_${exp_name}_ml_${year}${d}_${t}.nc
+        rm -f mars_ml_${exp_name}.grb
+      fi
+    fi
+
+    # Check for surface level retrieval
+    if [[ " $levels " =~ " srf " ]]; then
+      echo "Surface level selected"
+      cat <<EOF >> mm_sfc
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=${year}${d},
+expver=${exp_id},
+levtype=sfc,
+param=${param_sfc},
+step=$(($t+0))/$(($t+1))/$(($t+2))/$(($t+3))/$(($t+4))/$(($t+5))/$(($t+6))/$(($t+7))/$(($t+8))/$(($t+9))/$(($t+10))/$(($t+11))/$(($t+12)),
+stream=${stream},
+time=00:00:00,
+type=fc,
+grid=${grid},
+area=${area},
+target="mars_srf_${exp_name}.grb"
+EOF
+      # Call MARS
+      mars mm_sfc
+      # Convert to netCDF if retrieved
+      if [[ -f mars_srf_${exp_name}.grb ]]; then
+        grib_to_netcdf -R ${year}${d} mars_srf_${exp_name}.grb -o ${exp_id}_${exp_name}_srf_${year}${d}_${t}.nc
+        rm -f mars_srf_${exp_name}.grb
+      fi
+    fi
+
+  done
+done
