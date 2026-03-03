@@ -122,6 +122,10 @@ if __name__ == "__main__":
    file_extension = ".nc"
    outdir = "/perm/paaa/observations/Cesar/"
    api_url = "https://api.dataplatform.knmi.nl/open-data/v1/datasets/cesar_tower_meteo_lb1_t10/versions/v1.2/files"
-   api_key = "eyJvcmciOiI1ZTU1NGUxOTI3NGE5NjAwMDEyYTNlYjEiLCJpZCI6ImVlNDFjMWI0MjlkODQ2MThiNWI4ZDViZDAyMTM2YTM3IiwiaCI6Im11cm11cjEyOCJ9"
+   api_key = os.environ.get("KNMI_API_KEY") #KNMI_API_KEY is in .bashrc, do not hard-code tokens in the repo
+   if not api_key:
+       raise SystemExit(
+           "Missing KNMI API token. Set it via environment variable KNMI_API_KEY (do not hard-code tokens in the repo)."
+       )
 
    KNMI_KDP_downloader(yyyymm_list, dataset_name + "_" + version, file_extension, outdir, api_url, api_key)

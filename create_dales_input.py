@@ -56,7 +56,7 @@ out_dir = "/perm/paaa/images/quick"
 os.makedirs(data_dir, exist_ok=True)
 os.makedirs(f"{data_dir}/for_dales", exist_ok=True)
 
-inidate="20220515"
+inidate="20220516"
 initime="0"
 runid = "iyw7" # itvc
 stream = "oper"
@@ -67,7 +67,7 @@ if case_study=="Cabauw":
     # Cabauw location
     lon_pt=4.927
     lat_pt=51.971
-domain_margin = 1 # 0.5 degrees per side -> 1x1 degrees
+domain_margin = 1 # degrees per side -> 0.5 means 1x1 degrees box
 
 
 # new for CY49R2b
@@ -107,10 +107,10 @@ extra_param_name = {
 #### ---- Extract data ---- ####
 ## Surface level for dales input
 stop_execution = False
-target_file=f'{data_dir}/for_dales/{runid}_{case_study}_sfc.grib'
+target_file=f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_sfc.grib'
 if not os.path.exists(target_file):
     stop_execution = True
-    print(f"**** \n Grib not found for {runid} at {case_study} srf. Retrieving from MARS...")
+    print(f"**** \n Grib not found for {runid} at {case_study} {inidate} sfc. Retrieving from MARS...")
     req_file=f"mars_request_{runid}_{case_study}_sfc"
     req = {
     # "database":"fdb",
@@ -135,11 +135,11 @@ if not os.path.exists(target_file):
     f = open(req_file, "w")
     f.write(kv)
     f.close()
-    os.system(f"sbatch --mem='32GB' --wrap='mars {req_file}'")
+    os.system(f"sbatch --mem='16GB' --wrap='mars {req_file}'")
 else:
-    print(f"**** \n Grib already exists for {runid} at {case_study} surface.")
+    print(f"**** \n Grib already exists for {runid} at {case_study} {inidate} surface.")
 ## Model level for dales input
-target_file=f'{data_dir}/for_dales/{runid}_{case_study}_ml.grib'
+target_file=f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_ml.grib'
 if not os.path.exists(target_file):
     stop_execution = True
     print(f"**** \n Grib not found for {runid} at {case_study} ml. Retrieving from MARS...")
@@ -168,11 +168,11 @@ if not os.path.exists(target_file):
     f = open(req_file, "w")
     f.write(kv)
     f.close()
-    os.system(f"sbatch --mem='32GB' --wrap='mars {req_file}'")
+    os.system(f"sbatch --mem='16GB' --wrap='mars {req_file}'")
 else:
     print(f"**** \n Grib already exists for {runid} at {case_study} ml.")
 ## LNSP for dales input
-target_file=f'{data_dir}/for_dales/{runid}_{case_study}_lnsp.grib'
+target_file=f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_lnsp.grib'
 if not os.path.exists(target_file):
     stop_execution = True
     print(f"**** \n Grib not found for {runid} at {case_study} lnsp. Retrieving from MARS...")
@@ -201,26 +201,26 @@ if not os.path.exists(target_file):
     f = open(req_file, "w")
     f.write(kv)
     f.close()
-    os.system(f"sbatch --mem='32GB' --wrap='mars {req_file}'")
+    os.system(f"sbatch --mem='16GB' --wrap='mars {req_file}'")
 else:
     print(f"**** \n Grib already exists for {runid} at {case_study} lnsp.")
 
 if stop_execution:
     print("Stopping execution to allow MARS jobs to complete. Re-run after data is retrieved.")
-    exit()
+    # exit()
 
 print("Opening data...")
 # Open surface 
-path = f'{data_dir}/for_dales/{runid}_{case_study}_sfc.grib'
+path = f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_sfc.grib'
 srf_experimental = xr.open_dataset(path, engine="cfgrib", backend_kwargs={"filter_by_keys": {"edition": 2}})
 srf = xr.open_dataset(path, engine="cfgrib", backend_kwargs={"filter_by_keys": {"edition": 1}})
 ds_srf = xr.merge([srf, srf_experimental])
 ds_srf = ds_srf.rename({'p216090': 'co2_emiss_tot'})
 # Open model levels
-path = f'{data_dir}/for_dales/{runid}_{case_study}_ml.grib'
+path = f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_ml.grib'
 ds_ml = xr.open_dataset(path, engine="cfgrib", backend_kwargs={"filter_by_keys": {"edition": 2}}).rename(extra_param_name)
 # open LNSP
-path = f'{data_dir}/for_dales/{runid}_{case_study}_lnsp.grib'
+path = f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_lnsp.grib'
 lnsp = xr.open_dataset(path, engine="cfgrib", backend_kwargs={"filter_by_keys": {"edition": 2}})
 
 
@@ -242,10 +242,18 @@ ds_ml['dqdt_dyn'] = deaccumulate_var(ds_ml['dqdt_dyn'],dt=dt,
                                   long_name='Dynamical tendency specific humidity',units='kg kg**-1 s**-1')
 ds_ml['dco2dt_dyn'] = deaccumulate_var(ds_ml['dco2dt_dyn'],dt=dt,
                                   long_name='Dynamical tendency CO2',units='kg kg**-1 s**-1')
+ds_ml['SW_heating_rate'] = deaccumulate_var(ds_ml['SW_heating_rate'],dt=dt,
+                                  long_name='Deac SW heating rate',units=f'K s$^{-1}$')
+ds_ml['LW_heating_rate'] = deaccumulate_var(ds_ml['LW_heating_rate'],dt=dt,
+                                  long_name='Deac LW heating rate',units=f'K s$^{-1}$')
 
 #### ----- New variables ----- #####
 ds_ml['ql'] = ds_ml['clwc']+ds_ml['crwc']+ds_ml['ciwc']+ds_ml['cswc']
 ds_ml['qt'] = ds_ml['q']+ds_ml['ql']
+
+# save ds_srf 
+print("Saving surface dataset...")
+ds_srf.to_netcdf(f'{data_dir}/for_dales/{runid}_{case_study}_{inidate}_srf.nc')
 
 ## from hybrid model levels to height
 def ml_to_height_levels(
@@ -428,12 +436,29 @@ def ml_to_height_levels(
 
     ds_out.close()
     # return a lightweight xarray pointing to file
-    return xr.open_dataset(out_path)
+    return xr.open_dataset(out_path) 
 
 
 # --- Compute values on height levels (disk-backed to reduce memory) ---
-out_z_path = f"{data_dir}/for_dales/{runid}_{case_study}_z.nc"
-ds_z = ml_to_height_levels(ds_ml, lnsp, out_path=out_z_path)
+out_z_path = f"{data_dir}/for_dales/{runid}_{case_study}_{inidate}_z.nc"
+if os.path.exists(out_z_path):
+    print(f"Height-level file {out_z_path} already exists. Remove if you want to recompute.")
+    # interrupt execution to avoid overwriting
+    # exit()
+    ds_z = xr.open_dataset(out_z_path)
+else:
+    print("Converting model levels to height levels...")
+    ds_z = ml_to_height_levels(ds_ml, lnsp, out_path=out_z_path)
+# Ensure coordinate compatibility: align 'step' dtype with ds_srf to avoid merge errors
+try:
+    if ("step" in ds_srf.coords) and ("step" in ds_z.coords):
+        # Use surface dataset's step coordinate (usually timedelta64 from cfgrib)
+        # This avoids dtype promotion issues when merging with ds_z (which may have float step from NetCDF)
+        if ds_srf["step"].dtype != ds_z["step"].dtype or not np.array_equal(ds_srf["step"].values, ds_z["step"].values):
+            ds_z = ds_z.assign_coords(step=ds_srf["step"]) 
+except Exception:
+    # If anything goes wrong, fall back silently; merge may still work if dtypes match
+    pass
 # --- Merge surface and height datasets ---
 ds = xr.merge([ds_srf, ds_z])
 # --- Save dataset ---

@@ -49,7 +49,11 @@ def download_file_from_temporary_download_url(download_url, filename,save_dir):
 
 
 def main():
-    api_key = "eyJvcmciOiI1ZTU1NGUxOTI3NGE5NjAwMDEyYTNlYjEiLCJpZCI6IjE4NjUxNWQ1YTA1MDQzNjhhZjhhYTMzYjk1YTgwNzI4IiwiaCI6Im11cm11cjEyOCJ9"
+    api_key = os.environ.get("KNMI_API_KEY") #KNMI_API_KEY is in .bashrc, do not hard-code tokens in the repo
+    if not api_key:
+        raise SystemExit(
+            "Missing KNMI API token. Set it via environment variable KNMI_API_KEY (do not hard-code tokens in the repo)."
+        )
     dataset_name = "cesar_tower_meteo_lc1_t10"
     dataset_version = "v1.1"
     logger.info(f"Fetching latest file of {dataset_name} version {dataset_version}")

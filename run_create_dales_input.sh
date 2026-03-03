@@ -2,9 +2,9 @@
 
 #SBATCH --job-name=create_dales_input
 #SBATCH --time=04:00:00
-#SBATCH --mem=64G
+#SBATCH --mem=16G
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=2
 
 # Optional: load modules or activate virtualenv
 source /home/paaa/venv/test_env/bin/activate
