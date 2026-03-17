@@ -1,6 +1,6 @@
 # DALES with chemistry
 
-This directory is for pre-processing the periodic-boundary DALES with chemistry data from Arseni's simulations. Below you'll find his instructions.
+This directory is for pre-processing the periodic-boundary DALES with chemistry data from Arseni's simulations.
 
 ---
 
