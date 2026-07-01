@@ -19,6 +19,7 @@ levels=""
 ldiagflx=""
 ldiagflx_49r2b=""
 ldiagghg=""
+levitrac=""
 lbud23=""
 lead_time=""
 stream="" 
@@ -33,6 +34,7 @@ while [[ $# -gt 0 ]]; do
     --ldiagflx) ldiagflx="$2"; shift 2 ;;
     --ldiagflx_49r2b) ldiagflx_49r2b="$2"; shift 2 ;;
     --ldiagghg) ldiagghg="$2"; shift 2 ;;
+    --levitrac) levitrac="$2"; shift 2 ;;
     --lbud23) lbud23="$2"; shift 2 ;;
     --lead_time) lead_time="$2"; shift 2 ;;
     --stream) stream="$2"; shift 2 ;;
@@ -56,6 +58,7 @@ echo "levels: $levels"
 echo "ldiagflx: $ldiagflx"
 echo "ldiagflx_49r2b: $ldiagflx_49r2b"
 echo "ldiagghg: $ldiagghg"
+echo "levitrac: $levitrac"
 echo "lbud23: $lbud23"
 echo "lead_time: $lead_time"
 echo "grid: $grid"
@@ -78,7 +81,11 @@ fi
 
 ########################################
 # Variable selection
-param_sfc='66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109'
+param_sfc='146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109'
+if [[ "$levitrac" == "True" ]]; then
+  param_sfc+='216090'
+fi
+
 if [[ "$ldiagghg" == "True" ]]; then
   param_ml='75/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026'
 elif [[ "$ldiagflx" == "True" ]]; then
@@ -86,7 +93,6 @@ elif [[ "$ldiagflx" == "True" ]]; then
   echo "param_ml: $param_ml"
 elif [[ "$ldiagflx_49r2b" == "True" ]]; then
   param_ml='75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026'
-  param_sfc+='/216090'
   echo "param_ml: $param_ml"
 elif [[ "$lbud23" == "True" ]]; then
   param_ml='91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115'
@@ -114,6 +120,8 @@ for d in 0515 0516 0517 0518 0519 0520; do
     # Start fresh mm files
     > mm_ml
     > mm_sfc
+    # Remove any stale intermediate files from previous interrupted runs to prevent MARS appending
+    rm -f "mars_ml_${exp_name}.grb" "mars_srf_${exp_name}.grb"
 
     # Check for model level retrieval
     if [[ " $levels " =~ " ml " ]]; then

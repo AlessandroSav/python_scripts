@@ -16,14 +16,16 @@ source venv/test_env/bin/activate || { echo "Failed to activate virtual environm
 #############################################
 #############################################
 # Define the variables once here
+force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
 subdomain="netherlands"
-exp_id="j0c6"
-exp_name="SPP_all"
-exp_type="pf"
+exp_id="j6d5"
+exp_name="SPP_rkap"
 levels="srf" # pl / srf 
+
 lead_time="0"
 stream="enfo" # oper/lwda/enfo
-
+levitrac="True"
+exp_type="pf"
 # Date range for retrieval (inclusive). Format: YYYYMMDD
 yyyymmdd_start="20220515"
 yyyymmdd_end="20220520"
@@ -36,7 +38,7 @@ scratch_path_glob="/scratch/$USER/IFS/${subdomain}/${exp_id}/${exp_id}_${exp_nam
 files=($scratch_path_glob)
 echo "${scratch_path_glob}"
 
-if [ ${#files[@]} -gt 0 ]; then
+if [ ${#files[@]} -gt 0 ] && [ "$force_extract" != "True" ]; then
   echo "#### Data already extracted and available at ${files[0]} (and others) ####"
 
 else
@@ -49,7 +51,9 @@ else
     --lead_time \"$lead_time\" \
     --stream \"$stream\" \
     --yyyymmdd_start \"$yyyymmdd_start\" \
-    --yyyymmdd_end \"$yyyymmdd_end\""
+    --yyyymmdd_end \"$yyyymmdd_end\" \
+    --levitrac \"$levitrac\" \
+    --force \"$force_extract\""
   
   echo "#### Come back after Mars extraction is done. ####"
   exit 0
@@ -62,7 +66,8 @@ python3 -u python_scripts/processing_IFS/scripts/S1_SPP_deaccumulate_combine.py 
   --exp_id "$exp_id"_"$exp_name" \
   --exp_type "$exp_type" \
   --levels "$levels" \
-  --lead_time "$lead_time"
+  --lead_time "$lead_time" \
+  --levitrac "$levitrac"
 
 levels_for_interp="$levels"
 if [ "$levels" = "pl" ]; then

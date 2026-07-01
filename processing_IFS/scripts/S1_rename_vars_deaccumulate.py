@@ -17,6 +17,7 @@ parser.add_argument("--exp_type", type=str, required=True)
 parser.add_argument("--levels", type=str, required=True)
 parser.add_argument("--ldiagflx", type=str, default='False')
 parser.add_argument("--ldiagghg", type=str, default='True')
+parser.add_argument("--levitrac", type=str, default='False')
 parser.add_argument("--lbud23", type=str, default='False')
 parser.add_argument("--ldiagflx_49r2b", type=str, default='False')
 parser.add_argument("--lead_time", type=int, default=24)
@@ -30,6 +31,7 @@ levels = args.levels
 ldiagflx = args.ldiagflx
 ldiagghg = args.ldiagghg
 lbud23 = args.lbud23
+levitrac = args.levitrac
 ldiagflx_49r2b = args.ldiagflx_49r2b
 lead_time = args.lead_time
 
@@ -84,7 +86,7 @@ LDIAGFLX_49r2b = {
     'p108': 'dqdt_conv'   , 'p109': 'qflx_conv'  ,
     'p110': 'dco2dt_conv' , 'p111': 'co2flx_conv' ,
 }
-LDIAGFLX_49r2b_srf = {
+LEVITRAC = {
     'p216090' : 'co2flx_tot'     ,
 }
 LBUD23 = {
@@ -206,8 +208,8 @@ for file in files:
         if ldiagflx_49r2b =='True':
             ds_single = ds_single.rename(LDIAGFLX_49r2b)
     elif levels == 'srf':
-        if ldiagflx_49r2b =='True':
-            ds_single = ds_single.rename(LDIAGFLX_49r2b_srf)
+        if levitrac =='True':
+            ds_single = ds_single.rename(LEVITRAC)
     ########################################
 
     ## Loop through the variables
@@ -307,7 +309,7 @@ for file in files:
     vars_to_deaccumulate = [var for var in ds_single.variables if 'dt' in var]
     # Select variables to deaccumulate (Time-integrated) from model level output
     for var in ds_single:
-        if var in ['srta','trta','umfa','dmfa','udra','ddra','tdcha','dryMF','dry_moistMF']:
+        if var in ['srta','trta','umfa','dmfa','udra','ddra','tdcha','dryMF','dry_moistMF','sshf','slhf']:
             vars_to_deaccumulate.append(var)
             ds_single[var].attrs['long_name'] = ds_single[var].attrs['long_name'].replace('Time-integrated', 'Deaccumulated').capitalize() # remove the string "Time-integrated..."
         if var in ['co2flx_dyn','co2flx_diff','co2flx_conv','ch4flx_dyn','ch4flx_diff','ch4flx_conv','co2flx_tot']:
@@ -334,7 +336,12 @@ for file in files:
 print(f"Finished processing files________")
 
 ###
-## I don't know why this is needed, but without it the saving goes wrong. Might be becasue of existing NaN values
+## Drop inherited int16 encoding from source files. Each daily file stores variables
+## with a per-file scale_factor/add_offset that can't represent the full range of
+## the combined dataset, causing silent value clipping on to_netcdf(). Writing as
+## float64 avoids this.
+for var in ds_combined.data_vars:
+    ds_combined[var].encoding.clear()
 ds_combined = ds_combined.map(lambda x: x.astype('float64'))
 
 ## Save to perm what you need ##

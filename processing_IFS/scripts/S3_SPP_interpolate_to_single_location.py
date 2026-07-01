@@ -23,6 +23,13 @@ def inverse_distance_weighting(ds: xr.Dataset, target_lat: float, target_lon: fl
     return ds.weighted(weights).mean(dim=("latitude", "longitude"))
 
 
+def _save(ds: xr.Dataset, path: str) -> None:
+    """Delete any existing file before writing to avoid PermissionError on overwrite."""
+    if os.path.exists(path):
+        os.remove(path)
+    ds.to_netcdf(path)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--subdomain", type=str, required=True)
@@ -51,13 +58,13 @@ def main() -> None:
     # Save processed full-field file
     processed_path = os.path.join(dir_in, f"{exp_id}_{levels}_t{lead_time}_processed.nc")
     print(f"Saving processed: {processed_path}")
-    ds.to_netcdf(processed_path)
+    _save(ds, processed_path)
 
     # Save slab-mean
     slab = ds.mean(("latitude", "longitude"), keep_attrs=True)
     slab_path = os.path.join(dir_in, f"{exp_id}_{levels}_t{lead_time}_slab.nc")
     print(f"Saving slab: {slab_path}")
-    slab.to_netcdf(slab_path)
+    _save(slab, slab_path)
 
     # Save point locations
     for loc in locations:
@@ -69,7 +76,7 @@ def main() -> None:
 
         out_path = os.path.join(dir_in, f"{exp_id}_{levels}_t{lead_time}_{loc['name']}.nc")
         print(f"Saving point: {out_path}")
-        point.to_netcdf(out_path)
+        _save(point, out_path)
 
     print("Done.")
 

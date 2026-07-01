@@ -42,14 +42,17 @@ def _get_T_q(ds: xr.Dataset) -> Tuple[xr.DataArray, Optional[xr.DataArray]]:
     return T, q
 
 
-def _height_from_geopotential(ds: xr.Dataset) -> Optional[xr.DataArray]:
+def _height_from_geopotential(ds: xr.Dataset, z_srf: Optional[xr.DataArray] = None) -> Optional[xr.DataArray]:
     for name in ("z", "129.128", "gh", "geopotential"):
         if name in ds:
-            return ds[name] / G
+            z_pl = ds[name]
+            if z_srf is not None:
+                return (z_pl - z_srf) / G
+            return z_pl / G
     return None
 
 
-def _height_from_hypsometric(p_pa: xr.DataArray, T: xr.DataArray, q: Optional[xr.DataArray], level_dim: str) -> xr.DataArray:
+def _height_from_hypsometric(p_pa: xr.DataArray, T: xr.DataArray, q: Optional[xr.DataArray], level_dim: str, p_srf: Optional[xr.DataArray] = None) -> xr.DataArray:
     # Virtual temperature
     if q is not None:
         # q in kg/kg is ideal, but some datasets store g/kg. Try to detect.
@@ -76,11 +79,17 @@ def _height_from_hypsometric(p_pa: xr.DataArray, T: xr.DataArray, q: Optional[xr
     # dz between adjacent levels (positive upwards because p decreases upward)
     dz = - (RD / G) * Tv_mid * dlnp
 
-    # Integrate from the bottom-most level: set z(bottom)=0 and accumulate upwards
-    zero = xr.zeros_like(Tv_sorted.isel({level_dim: 0})).astype("float64")
-    zero = zero.expand_dims({level_dim: [p_sorted[level_dim].values[0]]})
-    z_cum = dz.cumsum(dim=level_dim).astype("float64")
-    z_sorted = xr.concat([zero, z_cum], dim=level_dim)
+    # Height of the bottom-most pressure level above ground
+    if p_srf is not None:
+        # Hypsometric thickness from surface pressure to bottom pressure level
+        p_bot = p_sorted.isel({level_dim: 0})
+        Tv_bot = Tv_sorted.isel({level_dim: 0})
+        z_bot = (-(RD / G) * Tv_bot * np.log(p_bot / p_srf)).astype("float64")
+    else:
+        z_bot = xr.zeros_like(Tv_sorted.isel({level_dim: 0})).astype("float64")
+    z_bot_lev = z_bot.expand_dims({level_dim: [p_sorted[level_dim].values[0]]})
+    z_cum = (dz.cumsum(dim=level_dim) + z_bot).astype("float64")
+    z_sorted = xr.concat([z_bot_lev, z_cum], dim=level_dim)
 
     # Return to original level ordering
     return z_sorted.sortby(p_pa)
@@ -117,10 +126,26 @@ def main() -> None:
 
     dir_in = f"/perm/paaa/IFS/{subdomain}/{exp_type}"
     in_path = os.path.join(dir_in, f"{exp_id}_pl_t{lead_time}.nc")
+    srf_path = os.path.join(dir_in, f"{exp_id}_srf_t{lead_time}.nc")
+
     out_path = os.path.join(dir_in, f"{exp_id}_z_t{lead_time}.nc")
 
     print(f"Reading: {in_path}")
     ds = xr.open_dataset(in_path)
+    ds_srf = xr.open_dataset(srf_path)
+
+    # Guard against duplicate timestamps (step=24 of day N == step=0 of day N+1).
+    # These must be resolved in S1 before running S2.
+    for label, _ds, path in [("pl", ds, in_path), ("srf", ds_srf, srf_path)]:
+        n_dupes = _ds.sizes["time"] - len(np.unique(_ds["time"].values))
+        if n_dupes > 0:
+            raise SystemExit(
+                f"ERROR: {n_dupes} duplicate time steps found in {label} file:\n  {path}\n"
+                f"Re-run S1 for '{label}' to produce a clean combined file before running S2."
+            )
+
+    z_srf = ds_srf["z"]   # surface geopotential [m2/s2]
+    p_srf = ds_srf["sp"]  # surface pressure [Pa]
 
     level_dim, lev = _find_level_dim(ds)
     if level_dim != "level":
@@ -138,13 +163,13 @@ def main() -> None:
         dtype="float64",
     )
 
-    height = _height_from_geopotential(ds)
+    height = _height_from_geopotential(ds, z_srf=z_srf)
     if height is None:
         print("No geopotential variable found; falling back to hypsometric height from T/(q).")
         T, q = _get_T_q(ds)
-        height = _height_from_hypsometric(p_pa, T, q, level_dim=level_dim)
+        height = _height_from_hypsometric(p_pa, T, q, level_dim=level_dim, p_srf=p_srf)
     else:
-        print("Using geopotential to derive geometric height.")
+        print("Using geopotential to derive AGL height.")
 
     # Build output dataset
     out_coords = {"height": hlevs}
@@ -185,6 +210,8 @@ def main() -> None:
             ds_out[var] = da
 
     print(f"Saving: {out_path}")
+    if os.path.exists(out_path):
+        os.remove(out_path)
     ds_out.to_netcdf(out_path)
 
 

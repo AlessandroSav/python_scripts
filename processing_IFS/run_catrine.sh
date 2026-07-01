@@ -21,16 +21,18 @@ source venv/test_env/bin/activate || { echo "Failed to activate virtual environm
 #############################################
 # Define the variables once here
 subdomain="netherlands"
-exp_id="iyw7"
-exp_name="ctrl_49r2b"
+exp_id="j7fk"
+exp_name="short_tail_ABL"
 exp_type="fc"
 levels="srf" # ml / pl / srf 
 ldiagflx="False"
 ldiagflx_49r2b="True"
 ldiagghg="False"
 lbud23="False"
+levitrac="False"
 lead_time="0"
 stream="oper" # oper/lwda
+force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
 #############################################
 #############################################
 # if [ "$levels" = "srf" ]; then
@@ -46,7 +48,7 @@ scratch_path_glob="/scratch/$USER/IFS/${subdomain}/${exp_id}/${exp_id}_${exp_nam
 files=($scratch_path_glob)
 echo "${scratch_path_glob}"
 
-if [ ${#files[@]} -gt 0 ]; then
+if [ ${#files[@]} -gt 0 ] && [ "$force_extract" != "True" ]; then
   echo "#### Data already extracted and available at ${files[0]} (and others) ####"
 else
   echo "#### Running Mars retrieval for $exp_id $levels ####"
@@ -60,6 +62,7 @@ else
     --ldiagflx_49r2b "$ldiagflx_49r2b" \
     --ldiagghg "$ldiagghg" \
     --lbud23 "$lbud23" \
+    --levitrac "$levitrac" \
     --lead_time "$lead_time" \
     --stream "$stream"
     "
@@ -77,6 +80,7 @@ python3 -u python_scripts/processing_IFS/scripts/S1_rename_vars_deaccumulate.py 
   --levels "$levels" \
   --ldiagflx "$ldiagflx" \
   --ldiagghg "$ldiagghg" \
+  --levitrac "$levitrac" \
   --lbud23 "$lbud23" \
   --ldiagflx_49r2b "$ldiagflx_49r2b" \
   --lead_time "$lead_time"
