@@ -1,1 +1,0 @@
-retrieve,class=rd,type=fc,date=20220518/to/20220520,expver=iyw7,param=2t/blh/64.210/65.210/80.228/210061/210062,step=0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23,stream=oper,time=0,grid=0.2/0.2,area=70/-20/30/50,levtype=sfc,target="/scratch/paaa/glob_co2_compare/iyw7_sfc_europe_20220518to20220520.grib"
