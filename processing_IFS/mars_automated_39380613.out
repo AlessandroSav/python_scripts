@@ -1,0 +1,191 @@
+[ECMWF-INFO -ecprofile] /usr/bin/bash NON_INTERACTIVE on ac6-183 at 20260716_131149.413, PID: 3695953, JOBID: 39380613
+[ECMWF-INFO -ecprofile] $SCRATCH=/ec/res4/scratch/paaa
+[ECMWF-INFO -ecprofile] $PERM=/perm/paaa
+[ECMWF-INFO -ecprofile] $HPCPERM=/ec/res4/hpcperm/paaa
+[ECMWF-INFO -ecprofile] $TMPDIR=/etc/ecmwf/ssd/ssd1/tmpdirs/paaa.39380613
+[ECMWF-INFO -ecprofile] $SCRATCHDIR=/ec/res4/scratchdir/paaa/5/39380613
+base_dir: /scratch/paaa/IFS/HPB_tower
+subdomain: HPB_tower
+exp_id: j1rw
+exp_name: 9km_49r2b
+exp_type: fc
+levels: ml
+ldiagflx: False
+ldiagflx_49r2b: True
+ldiagghg: False
+levitrac: False
+lbud23: False
+lead_time: 0
+grid: 0.2/0.2
+year: 2022
+stream: oper
+single_day: False
+area: 48.3/10.5/47.3/11.5
+param_ml: 75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026
+Find your raw data in /scratch/paaa/IFS/HPB_tower/j1rw
+Model level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.4.11/bin/mars.bin
+mars - INFO   - 20260716.131151 - Welcome to MARS
+mars - INFO   - 20260716.131151 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260716.131151 - MARS Client build stamp: 20260421054856
+mars - INFO   - 20260716.131151 - MARS Client bundle version: 6.34.4.11
+mars - INFO   - 20260716.131151 - package mars-client version: 6.34.4
+mars - INFO   - 20260716.131151 - package mir version: 1.23.9
+mars - INFO   - 20260716.131151 - package odc version: 1.6.3
+mars - INFO   - 20260716.131151 - package fdb version: 5.21.1
+mars - INFO   - 20260716.131151 - package metkit version: 1.18.0
+mars - INFO   - 20260716.131151 - package eckit version: 2.0.7
+mars - INFO   - 20260716.131151 - package eccodes version: 2.46.3
+# First retrieve profiles
+retrieve,
+anoffset=9,
+class=rd,
+date=20220515,
+expver=j1rw,
+levelist=1/50/51/52/53/54/55/56/57/58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/130/131/132/133/134/135/136/137,
+levtype=ml,
+param=75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=48.3/10.5/47.3/11.5,
+target="mars_ml_9km_49r2b.grb"
+
+mars - INFO   - 20260716.131151 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j1rw,
+    REPRES     = SH,
+    LEVTYPE    = ML,
+    LEVELIST   = 1/50/51/52/53/54/55/56/57/58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/130/131/132/133/134/135/136/137,
+    PARAM      = 75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026,
+    DATE       = 20220515,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_ml_9km_49r2b.grb",
+    RESOL      = AUTO,
+    AREA       = 48.3/10.5/47.3/11.5,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260716.131152 - Requesting 59020 fields
+mars - INFO   - 20260716.131152 - FDB home /home/fdbprod
+mars - INFO   - 20260716.131152 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260716.131152 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260716.131152 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260716.131152 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260716.131152 - Calling mars on 'marsrd-core', local port is 54403
+mars - INFO   - 20260716.131152 - Callback at address 10.100.192.183, port 54403
+mars - INFO   - 20260716.131155 - Mars client is on ac6-183.bullx (10.100.192.183) 54403
+mars - INFO   - 20260716.131155 - Mars server is on 10.112.4.10 59687
+mars - INFO   - 20260716.131155 - Server task is 157 [marsrd]
+mars - INFO   - 20260716.131155 - Request cost: 45,136 fields, 154.859 Gbytes online, nodes: mvr003 mvr007 mvr008 mvr013 [marsrd]
+mars - INFO   - 20260716.131155 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260716.131156 - Wind conversion requested by server
+mars - INFO   - 20260716.131157 - Transfering 166278728074 bytes
+mars - INFO   - 20260716.131158 - Cache file /lus/h2resw01/cache/mir/weights/16/linear/R1280-8eadc35e89cffa3b706236fca69532c3-89.9462:0:-89.9462:359.93/LL-0.2x0.2-48.3:10.5:47.3:11.5-9a929179c560c8ea5320c350e46f3187.mat does not exist
+mars - INFO   - 20260716.131158 - Creating cache file /lus/h2resw01/cache/mir/weights/16/linear/R1280-8eadc35e89cffa3b706236fca69532c3-89.9462:0:-89.9462:359.93/LL-0.2x0.2-48.3:10.5:47.3:11.5-9a929179c560c8ea5320c350e46f3187.mat
+mars - INFO   - 20260716.131158 - CacheManager creating file /lus/h2resw01/cache/mir/weights/16/linear/R1280-8eadc35e89cffa3b706236fca69532c3-89.9462:0:-89.9462:359.93/LL-0.2x0.2-48.3:10.5:47.3:11.5-9a929179c560c8ea5320c350e46f3187.mat
+mars - INFO   - 20260716.131206 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T899-GaussianN450-OPT4189816c2e.leg'
+mars - INFO   - 20260716.131327 - mmap count: 1 (+1), mmap size: 1.36244 Gbytes (+1.36244 Gbytes), mapped shared: 1.37106 Gbytes (+1.36244 Gbytes), malloc total: 70.2686 Mbytes (+128 bytes), malloc free: 996.384 Mbytes (-128 bytes)Cache file /lus/h2resw01/cache/mir/weights/16/linear/F450-48.4731:10.2:47.2737:11.6/LL-0.2x0.2-48.3:10.5:47.3:11.5-b8361cebfca98e1a9fd575e2608c9949.mat does not exist
+mars - INFO   - 20260716.131327 - Creating cache file /lus/h2resw01/cache/mir/weights/16/linear/F450-48.4731:10.2:47.2737:11.6/LL-0.2x0.2-48.3:10.5:47.3:11.5-b8361cebfca98e1a9fd575e2608c9949.mat
+mars - INFO   - 20260716.131327 - CacheManager creating file /lus/h2resw01/cache/mir/weights/16/linear/F450-48.4731:10.2:47.2737:11.6/LL-0.2x0.2-48.3:10.5:47.3:11.5-b8361cebfca98e1a9fd575e2608c9949.mat
+mars - INFO   - 20260716.131344 - Cache file /lus/h2resw01/cache/mir/weights/16/linear/F450-48.4731:10.2:47.2737:11.6/LL-0.2x0.2-48.3:10.5:47.3:11.5-31ec776325665c13586950c456b33093.mat does not exist
+mars - INFO   - 20260716.131344 - Creating cache file /lus/h2resw01/cache/mir/weights/16/linear/F450-48.4731:10.2:47.2737:11.6/LL-0.2x0.2-48.3:10.5:47.3:11.5-31ec776325665c13586950c456b33093.mat
+mars - INFO   - 20260716.131344 - CacheManager creating file /lus/h2resw01/cache/mir/weights/16/linear/F450-48.4731:10.2:47.2737:11.6/LL-0.2x0.2-48.3:10.5:47.3:11.5-31ec776325665c13586950c456b33093.mat
+mars - INFO   - 20260716.131346 - Deriving U and V from vorticity and divergence
+mars - WARN   - 20260716.143402 - Visiting database marsrd : expected 59020, got 47450
+mars - INFO   - 20260716.143402 - 47450 fields have been interpolated on 'ac6-183.bullx'
+mars - ERROR  - 20260716.143402 - Last error is -43
+mars - ERROR  - 20260716.143402 - Expected 59020, got 47450.
+mars - ERROR  - 20260716.143402 - Request failed
+mars - INFO   - 20260716.143402 - Request time:  wall: 1 hour 22 min 11 sec  cpu: 51 min 55 sec 
+mars - INFO   - 20260716.143402 -   Read from network: 2.75 Tbyte(s) in 1 min 40 sec  [28.16 Gbyte/sec] 
+mars - INFO   - 20260716.143402 -   Processing in marsrd: wall: 5 sec 
+mars - INFO   - 20260716.143402 -   Visiting marsrd: wall: 1 hour 22 min 10 sec 
+mars - INFO   - 20260716.143402 -   Post-processing: wall: 1 hour 17 min 36 sec cpu: 47 min 36 sec 
+mars - INFO   - 20260716.143402 -   Writing to target file: 64.16 Mbyte(s) in 1 sec  [51.35 Mbyte/sec] cpu: 1 sec 
+mars - INFO   - 20260716.143402 - Memory used: 2.91 Gbyte(s)
+mars - ERROR  - 20260716.143402 - Some errors reported (last error -1)
+Model level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.4.11/bin/mars.bin
+mars - INFO   - 20260716.143404 - Welcome to MARS
+mars - INFO   - 20260716.143404 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260716.143404 - MARS Client build stamp: 20260421054856
+mars - INFO   - 20260716.143404 - MARS Client bundle version: 6.34.4.11
+mars - INFO   - 20260716.143404 - package mars-client version: 6.34.4
+mars - INFO   - 20260716.143404 - package mir version: 1.23.9
+mars - INFO   - 20260716.143404 - package odc version: 1.6.3
+mars - INFO   - 20260716.143404 - package fdb version: 5.21.1
+mars - INFO   - 20260716.143404 - package metkit version: 1.18.0
+mars - INFO   - 20260716.143404 - package eckit version: 2.0.7
+mars - INFO   - 20260716.143404 - package eccodes version: 2.46.3
+# First retrieve profiles
+retrieve,
+anoffset=9,
+class=rd,
+date=20220515,
+expver=j1rw,
+levelist=1/50/51/52/53/54/55/56/57/58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/130/131/132/133/134/135/136/137,
+levtype=ml,
+param=75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=48.3/10.5/47.3/11.5,
+target="mars_ml_9km_49r2b.grb"
+
+mars - INFO   - 20260716.143404 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j1rw,
+    REPRES     = SH,
+    LEVTYPE    = ML,
+    LEVELIST   = 1/50/51/52/53/54/55/56/57/58/59/60/61/62/63/64/65/66/67/68/69/70/71/72/73/74/75/76/77/78/79/80/81/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/128/129/130/131/132/133/134/135/136/137,
+    PARAM      = 75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026,
+    DATE       = 20220515,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_ml_9km_49r2b.grb",
+    RESOL      = AUTO,
+    AREA       = 48.3/10.5/47.3/11.5,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260716.143405 - Requesting 59020 fields
+mars - INFO   - 20260716.143405 - FDB home /home/fdbprod
+mars - INFO   - 20260716.143406 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260716.143406 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260716.143406 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260716.143406 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260716.143406 - Calling mars on 'marsrd-core', local port is 46619
+mars - INFO   - 20260716.143406 - Callback at address 10.100.192.183, port 46619
+mars - INFO   - 20260716.143424 - Mars client is on ac6-183.bullx (10.100.192.183) 46619
+mars - INFO   - 20260716.143424 - Mars server is on 10.112.4.10 58229
+mars - INFO   - 20260716.143424 - Server task is 354 [marsrd]
+mars - INFO   - 20260716.143424 - Request cost: 45,136 fields, 175.797 Gbytes online, nodes: mvr002 mvr007 mvr010 mvr012 mvr013 [marsrd]
+mars - INFO   - 20260716.143424 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260716.143424 - Wind conversion requested by server
+mars - INFO   - 20260716.143425 - Transfering 188760441355 bytes
+mars - INFO   - 20260716.143429 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T899-GaussianN450-OPT4189816c2e.leg'
+mars - INFO   - 20260716.143430 - Deriving U and V from vorticity and divergence

@@ -1,9 +1,14 @@
 import argparse
 import os
+import sys
 from typing import Optional, Tuple
 
 import numpy as np
 import xarray as xr
+
+sys.path.append(".")  # Ensures the current directory is in the Python path
+sys.path.append("/home/paaa/python_scripts/")
+import my_functions as mfun
 
 
 G = 9.80665
@@ -170,6 +175,17 @@ def main() -> None:
         height = _height_from_hypsometric(p_pa, T, q, level_dim=level_dim, p_srf=p_srf)
     else:
         print("Using geopotential to derive AGL height.")
+
+    # Compute potential temperature on pressure levels and add to dataset
+    T, _ = _get_T_q(ds)
+    p_pa_broadcast = p_pa.broadcast_like(T)
+    th = mfun.calc_th(T, p_pa_broadcast)
+    th.attrs.update({"units": "K", "long_name": "Potential temperature"})
+    ds["th"] = th
+
+    # Add pressure (Pa) as a level variable so it gets interpolated to height levels
+    p_pa_broadcast.attrs.update({"units": "Pa", "long_name": "Pressure"})
+    ds["pressure"] = p_pa_broadcast
 
     # Build output dataset
     out_coords = {"height": hlevs}

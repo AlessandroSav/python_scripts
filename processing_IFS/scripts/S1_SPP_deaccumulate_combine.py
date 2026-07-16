@@ -55,9 +55,27 @@ def main() -> None:
     datasets = []
     for i, f in enumerate(files):
         ds_day = xr.open_dataset(f).load()  # eager load to avoid int16 encoding overflow on write
-        if i < len(files) - 1:
-            # Drop the last time step (step=24 h = step=0 of next day's file)
-            ds_day = ds_day.isel(time=slice(None, -1))
+        # Deaccumulate accumulated surface flux variables within each file.
+        # Must be done per-file: accumulation resets to zero at the start of each forecast day,
+        # so a post-concat diff would produce a spurious negative jump at every 00 UTC boundary.
+        vars_to_deacc = [v for v in ["sshf", "slhf"] if v in ds_day]
+        if vars_to_deacc and len(ds_day["time"]) > 1:
+            time_step_h = float(
+                (ds_day["time"].values[1] - ds_day["time"].values[0]).astype("timedelta64[h]").astype(float)
+            )
+            for var in vars_to_deacc:
+                if "long_name" in ds_day[var].attrs:
+                    ds_day[var].attrs["long_name"] = (
+                        ds_day[var].attrs["long_name"]
+                        .replace("Time-integrated", "Deaccumulated")
+                        .capitalize()
+                    )
+                da_diff = ds_day[var].diff(dim="time", label="upper")
+                da_diff.attrs = ds_day[var].attrs.copy()
+                da_diff.attrs["units"] = da_diff.attrs.get("units", "") + r" h$^{-1}$"
+                ds_day[var] = da_diff / time_step_h
+        # Drop the first time step (consumed by diff)
+        ds_day = ds_day.isel(time=slice(1, None))
         datasets.append(ds_day)
     ds = xr.concat(datasets, dim="time")
     if levels == "srf" and levitrac == "True":

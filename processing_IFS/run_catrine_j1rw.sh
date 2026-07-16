@@ -20,11 +20,11 @@ source venv/test_env/bin/activate || { echo "Failed to activate virtual environm
 #############################################
 #############################################
 # Define the variables once here
-subdomain="netherlands" #netherlands / HPB_tower
-exp_id="j7y2"
-exp_name="dryMF_49r2b"
+subdomain="HPB_tower" #netherlands / HPB_tower /europe /amazon
+exp_id="j1rw"
+exp_name="9km_49r2b"
 exp_type="fc"
-levels="ml" # ml / pl / srf 
+levels="srf" # ml / pl / srf 
 ldiagflx="False"
 ldiagflx_49r2b="True"
 ldiagghg="False"
@@ -32,7 +32,7 @@ lbud23="False"
 levitrac="False"
 lead_time="0"
 stream="oper" # oper/lwda
-force_extract="True"  # Set to "True" to re-run MARS extraction even if files already exist
+force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
 single_day="False" # '0515' / False
 #############################################
 #############################################

@@ -38,20 +38,31 @@ print(files)
 ds    = xr.open_mfdataset(files,combine='by_coords')
 ################################################
 UTC_to_LT = +2 # hours
-locations = [
-    {
-        "name": "cabauw",
-        "lat": 51.971,
-        "lon": 4.927,
-        "z": [5, 60, 100, 180]
-    },
-    {
-        "name": "loobos",
-        "lat": 52.166,
-        "lon": 5.744,
-        "z": [24]
-    }
-]
+if subdomain == 'netherlands':
+    locations = [
+        {
+            "name": "cabauw",
+            "lat": 51.971,
+            "lon": 4.927,
+            "z": [5, 60, 100, 180]
+        },
+        {
+            "name": "loobos",
+            "lat": 52.166,
+            "lon": 5.744,
+            "z": [24]
+        }
+    ]
+elif subdomain == 'HPB_tower':
+    locations = [
+        {
+            "name": "HPB_tower",
+            "lat":47.8,
+            "lon":11.017,
+            "z":[50,93,131]
+        },
+    ]
+
 ################################################
 ################################################################################################
 ### Interpolate spatially using Inverse Distance Weighting 

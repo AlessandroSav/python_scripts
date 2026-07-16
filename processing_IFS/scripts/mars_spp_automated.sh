@@ -24,6 +24,7 @@ subdomain=""
 exp_id=""
 exp_name=""
 levels=""
+number_members=""
 lead_time=""
 stream=""
 yyyymmdd_start=""
@@ -37,6 +38,7 @@ while [[ $# -gt 0 ]]; do
     --exp_id) exp_id="$2"; shift 2;;
     --exp_name) exp_name="$2"; shift 2;;
     --levels) levels="$2"; shift 2;;
+    --number_members) number_members="$2"; shift 2;;
     --lead_time) lead_time="$2"; shift 2;;
     --stream) stream="$2"; shift 2;;
     --yyyymmdd_start) yyyymmdd_start="$2"; shift 2;;
@@ -48,7 +50,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ -z "$subdomain" || -z "$exp_id" || -z "$exp_name" || -z "$levels" || -z "$lead_time" || -z "$stream" || -z "$yyyymmdd_start" || -z "$yyyymmdd_end" || -z "$levitrac" ]]; then
+if [[ -z "$subdomain" || -z "$exp_id" || -z "$exp_name" || -z "$levels" || -z "$number_members" || -z "$lead_time" || -z "$stream" || -z "$yyyymmdd_start" || -z "$yyyymmdd_end" || -z "$levitrac" ]]; then
   echo "Missing required args."
   usage
   exit 2
@@ -78,7 +80,18 @@ cd "$out_dir"
 
 # Domain/grid defaults: keep these minimal and editable.
 # NOTE: Update AREA/GRID as needed for your case.
-area="52.22/4.68/51.72/5.75"   # N/W/S/E
+# Area selection
+if [[ "$subdomain" == "netherlands" ]]; then
+  area='52.22/4.68/51.72/5.75'  # Cabauw + Loobos
+  echo "area: $area"
+elif [[ "$subdomain" == "HPB_tower" ]] ; then
+  area='48.3/10.5/47.3/11.5'
+  echo "area: $area"
+else
+  echo "subdomain not known. Extracting around Cabauw instead"
+  area='52.22/4.68/51.72/5.18'
+  echo "area: $area"
+fi
 grid="0.2/0.2"
 
 # Pressure level request example (include z/t/q 
@@ -127,7 +140,7 @@ expver=${exp_id},
 levelist=${pl_levelist},
 levtype=pl,
 param=${pl_param},
-step=0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24,
+step=$(($lead_time+0))/$(($lead_time+1))/$(($lead_time+2))/$(($lead_time+3))/$(($lead_time+4))/$(($lead_time+5))/$(($lead_time+6))/$(($lead_time+7))/$(($lead_time+8))/$(($lead_time+9))/$(($lead_time+10))/$(($lead_time+11))/$(($lead_time+12))/$(($lead_time+13))/$(($lead_time+14))/$(($lead_time+15))/$(($lead_time+16))/$(($lead_time+17))/$(($lead_time+18))/$(($lead_time+19))/$(($lead_time+20))/$(($lead_time+21))/$(($lead_time+22))/$(($lead_time+23))/$(($lead_time+24)),
 stream=${stream},
 time=00:00:00,
 type=cf,
@@ -142,9 +155,9 @@ date=${iso_date},
 expver=${exp_id},
 levelist=${pl_levelist},
 levtype=pl,
-number=1/2/3/4/5/6/7/8,
+number=1/to/${number_members},
 param=${pl_param},
-step=0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24,
+step=$(($lead_time+0))/$(($lead_time+1))/$(($lead_time+2))/$(($lead_time+3))/$(($lead_time+4))/$(($lead_time+5))/$(($lead_time+6))/$(($lead_time+7))/$(($lead_time+8))/$(($lead_time+9))/$(($lead_time+10))/$(($lead_time+11))/$(($lead_time+12))/$(($lead_time+13))/$(($lead_time+14))/$(($lead_time+15))/$(($lead_time+16))/$(($lead_time+17))/$(($lead_time+18))/$(($lead_time+19))/$(($lead_time+20))/$(($lead_time+21))/$(($lead_time+22))/$(($lead_time+23))/$(($lead_time+24)),
 stream=${stream},
 time=00:00:00,
 type=pf,
@@ -160,7 +173,7 @@ date=${iso_date},
 expver=${exp_id},
 levtype=sfc,
 param=${srf_param},
-step=0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24,
+step=$(($lead_time+0))/$(($lead_time+1))/$(($lead_time+2))/$(($lead_time+3))/$(($lead_time+4))/$(($lead_time+5))/$(($lead_time+6))/$(($lead_time+7))/$(($lead_time+8))/$(($lead_time+9))/$(($lead_time+10))/$(($lead_time+11))/$(($lead_time+12))/$(($lead_time+13))/$(($lead_time+14))/$(($lead_time+15))/$(($lead_time+16))/$(($lead_time+17))/$(($lead_time+18))/$(($lead_time+19))/$(($lead_time+20))/$(($lead_time+21))/$(($lead_time+22))/$(($lead_time+23))/$(($lead_time+24)),
 stream=${stream},
 time=00:00:00,
 type=cf,
@@ -174,9 +187,9 @@ class=rd,
 date=${iso_date},
 expver=${exp_id},
 levtype=sfc,
-number=1/2/3/4/5/6/7/8,
+number=1/to/${number_members},
 param=${srf_param},
-step=0/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24,
+step=$(($lead_time+0))/$(($lead_time+1))/$(($lead_time+2))/$(($lead_time+3))/$(($lead_time+4))/$(($lead_time+5))/$(($lead_time+6))/$(($lead_time+7))/$(($lead_time+8))/$(($lead_time+9))/$(($lead_time+10))/$(($lead_time+11))/$(($lead_time+12))/$(($lead_time+13))/$(($lead_time+14))/$(($lead_time+15))/$(($lead_time+16))/$(($lead_time+17))/$(($lead_time+18))/$(($lead_time+19))/$(($lead_time+20))/$(($lead_time+21))/$(($lead_time+22))/$(($lead_time+23))/$(($lead_time+24)),
 stream=${stream},
 time=00:00:00,
 type=pf,

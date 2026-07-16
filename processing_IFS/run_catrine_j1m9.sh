@@ -20,9 +20,9 @@ source venv/test_env/bin/activate || { echo "Failed to activate virtual environm
 #############################################
 #############################################
 # Define the variables once here
-subdomain="netherlands" #netherlands / HPB_tower
-exp_id="j7y2"
-exp_name="dryMF_49r2b"
+subdomain="amazon" #netherlands / HPB_tower /europe /amazon
+exp_id="j1m9"
+exp_name="half_ZCFC_everywhere_stable"
 exp_type="fc"
 levels="ml" # ml / pl / srf 
 ldiagflx="False"

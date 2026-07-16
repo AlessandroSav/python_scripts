@@ -17,10 +17,11 @@ source venv/test_env/bin/activate || { echo "Failed to activate virtual environm
 #############################################
 # Define the variables once here
 force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
-subdomain="netherlands"
-exp_id="j6d5"
-exp_name="SPP_rkap"
-levels="srf" # pl / srf 
+subdomain="HPB_tower" # "netherlands"
+exp_id="j7v0"
+exp_name="SPP_all_30"
+number_members="30" #excluding control member
+levels="pl" # pl / srf 
 
 lead_time="0"
 stream="enfo" # oper/lwda/enfo
@@ -48,6 +49,7 @@ else
     --exp_id \"$exp_id\" \
     --exp_name \"$exp_name\" \
     --levels \"$levels\" \
+    --number_members \"$number_members\" \
     --lead_time \"$lead_time\" \
     --stream \"$stream\" \
     --yyyymmdd_start \"$yyyymmdd_start\" \

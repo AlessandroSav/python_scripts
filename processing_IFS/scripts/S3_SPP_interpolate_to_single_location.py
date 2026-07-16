@@ -7,11 +7,6 @@ import xarray as xr
 
 UTC_to_LT = +2  # hours
 
-locations = [
-    {"name": "cabauw", "lat": 51.971, "lon": 4.927, "z": [5, 60, 100, 180]},
-    {"name": "loobos", "lat": 52.166, "lon": 5.744, "z": [24]},
-]
-
 
 def inverse_distance_weighting(ds: xr.Dataset, target_lat: float, target_lon: float) -> xr.Dataset:
     lat = ds["latitude"]
@@ -47,6 +42,17 @@ def main() -> None:
 
     dir_in = f"/perm/paaa/IFS/{subdomain}/{exp_type}"
     in_path = os.path.join(dir_in, f"{exp_id}_{levels}_t{lead_time}.nc")
+
+    if subdomain == 'netherlands':
+        locations = [
+            {"name": "cabauw", "lat": 51.971, "lon": 4.927, "z": [5, 60, 100, 180]},
+            {"name": "loobos", "lat": 52.166, "lon": 5.744, "z": [24]},
+        ]
+    elif subdomain == 'HPB_tower':
+        locations = [
+        {"name": "HPB_tower","lat":47.8,"lon":11.017,"z":[50,93,131]},
+    ]
+
 
     print(f"Reading: {in_path}")
     ds = xr.open_dataset(in_path)

@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=mars_automated
 #SBATCH --time=2-00:00:00 # 2 days
+# set -euo pipefail
 
 # This will create two .nc files for each day (one for the first 12 hours and one for the second half of the day)
 # with all the variables. Surface variables are separate from profiles.
@@ -23,6 +24,7 @@ levitrac=""
 lbud23=""
 lead_time=""
 stream="" 
+single_day="" # '0515' / False
 # Manual argument parsing
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -38,6 +40,7 @@ while [[ $# -gt 0 ]]; do
     --lbud23) lbud23="$2"; shift 2 ;;
     --lead_time) lead_time="$2"; shift 2 ;;
     --stream) stream="$2"; shift 2 ;;
+    --single_day) single_day="$2"; shift 2 ;;
     *)
       echo "Unknown option: $1"
       exit 1
@@ -64,6 +67,7 @@ echo "lead_time: $lead_time"
 echo "grid: $grid"
 echo "year: $year"
 echo "stream: $stream"
+echo "single_day: $single_day"
 
 ########################################
 # Area selection
@@ -72,6 +76,15 @@ if [[ "$subdomain" == "netherlands" ]]; then
   echo "area: $area"
 elif [[ "$subdomain" == "Cabauw" ]]; then
   area='52.22/4.68/51.72/5.18'  # Cabauw only
+  echo "area: $area"
+elif [[ "$subdomain" == "HPB_tower" ]] ; then
+  area='48.3/10.5/47.3/11.5'
+  echo "area: $area"
+elif [[ "$subdomain" == "europe" ]] ; then
+  area='51/9/47/13'
+  echo "area: $area"
+elif [[ "$subdomain" == "amazon" ]] ; then
+  area='-5.0/-70.0/-10.0/-55.0'
   echo "area: $area"
 else
   echo "subdomain not known. Extracting around Cabauw instead"
@@ -112,9 +125,13 @@ cd "${base_dir}/${exp_id}" || { echo "Failed to cd into ${base_dir}/${exp_id}"; 
 echo "Find your raw data in ${base_dir}/${exp_id}"
 
 # Loop through the days
-for d in 0515 0516 0517 0518 0519 0520; do
-# for d in 0515 0516 0517; do
-# for d in 0518 0519 0520; do
+if [[ "$single_day" != "False" ]]; then
+  read -r -a days <<< "$single_day"
+else
+  days=(0515 0516 0517 0518 0519 0520)
+fi
+
+for d in "${days[@]}"; do
   for t in ${lead_time}  $((lead_time + 12)); do 
 
     # Start fresh mm files
