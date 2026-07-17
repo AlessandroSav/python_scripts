@@ -33,7 +33,7 @@ levitrac="False"
 lead_time="0"
 stream="oper" # oper/lwda
 force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
-single_day="False" # '0515' / False
+single_day="0519" # '0515' / False
 #############################################
 #############################################
 # if [ "$levels" = "srf" ]; then

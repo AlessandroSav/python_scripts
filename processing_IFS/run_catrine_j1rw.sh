@@ -24,7 +24,7 @@ subdomain="HPB_tower" #netherlands / HPB_tower /europe /amazon
 exp_id="j1rw"
 exp_name="9km_49r2b"
 exp_type="fc"
-levels="srf" # ml / pl / srf 
+levels="ml" # ml / pl / srf 
 ldiagflx="False"
 ldiagflx_49r2b="True"
 ldiagghg="False"
@@ -32,8 +32,8 @@ lbud23="False"
 levitrac="False"
 lead_time="0"
 stream="oper" # oper/lwda
-force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
-single_day="False" # '0515' / False
+force_extract="True"  # Set to "True" to re-run MARS extraction even if files already exist
+single_day="0515" # '0515' / False
 #############################################
 #############################################
 # if [ "$levels" = "srf" ]; then

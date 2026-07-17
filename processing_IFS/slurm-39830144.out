@@ -1,0 +1,95 @@
+[ECMWF-INFO -sbatch] - -------------------------------------------------------------------------------------
+[ECMWF-INFO -sbatch] -  This is the ECMWF jobfilter
+[ECMWF-INFO -sbatch] -  +++ Please report issues using the Support portal +++
+[ECMWF-INFO -sbatch] -  +++ https://support.ecmwf.int                     +++
+[ECMWF-INFO -sbatch] -  /usr/local/bin/ecsbatch: size: 54473, mtime: Mon Jun 29 15:34:27 2026
+[ECMWF-INFO -sbatch] - -------------------------------------------------------------------------------------
+[ECMWF-INFO -sbatch] - Time at submit: Fri Jul 17 12:13:43 2026 (1784290423.6446676) on ac6-102.bullx:/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS
+[ECMWF-INFO -sbatch] - --- SLURM VARIABLES ---
+[ECMWF-INFO -sbatch] - EC_CLUSTER=ac
+[ECMWF-INFO -sbatch] - SLURM_EXPORT_ENV=ALL
+[ECMWF-INFO -sbatch] - SBATCH_EXPORT=NONE
+[ECMWF-INFO -sbatch] - -----------------------
+[ECMWF-INFO -sbatch] - jobscript: /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/run_catrine_j7y2.sh
+[ECMWF-INFO -sbatch] - --- SCRIPT OPTIONS ---
+[ECMWF-INFO -sbatch] - #SBATCH --time=10:00:00
+[ECMWF-INFO -sbatch] - #SBATCH --job-name=catrine_ifs_processing
+[ECMWF-INFO -sbatch] - #SBATCH --ntasks=1
+[ECMWF-INFO -sbatch] - #SBATCH --cpus-per-task=2
+[ECMWF-INFO -sbatch] - #SBATCH --mem=16GB
+[ECMWF-INFO -sbatch] - -----------------------
+[ECMWF-INFO -sbatch] - --- POST-PROCESSED OPTIONS ---
+[ECMWF-INFO -sbatch] - ARG --positional=['run_catrine_j7y2.sh']
+[ECMWF-INFO -sbatch] - ARG --cpus_per_task=2
+[ECMWF-INFO -sbatch] - ARG --job_name=catrine_ifs_processing
+[ECMWF-INFO -sbatch] - ARG --ntasks=1
+[ECMWF-INFO -sbatch] - ARG --time=10:00:00
+[ECMWF-INFO -sbatch] - ARG --mem=16GB
+[ECMWF-INFO -sbatch] - ------------------------------
+[ECMWF-INFO -sbatch] - No qos requested, assuming qos=nf
+[ECMWF-INFO -sbatch] - jobtag: paaa-catrine_if_processing-1x2-/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-_JOBID_.out
+[ECMWF-INFO -sbatch] - ------------------------------
+[ECMWF-INFO -sbatch] - Average Walltime 329 with a Standard Deviation 679
+[ECMWF-INFO -sbatch] - Runtime history
+[ECMWF-INFO -sbatch] -   Date               | Cores   Cluster   Walltime       Mem
+[ECMWF-INFO -sbatch] -   17.07.2026 - 09:15 | 2          ac         1925       16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 15:46 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 13:53 | 2          ac         1838       16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 13:12 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 13:11 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 12:51 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 12:49 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 11:26 | 2          ac         1866       16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 10:04 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 10:01 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 09:56 | 2          ac         910        16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 09:56 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 09:54 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   16.07.2026 - 09:50 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   15.07.2026 - 18:32 | 2          ac         2          16G       
+[ECMWF-INFO -sbatch] -   15.07.2026 - 18:31 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   15.07.2026 - 18:31 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   15.07.2026 - 18:02 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   15.07.2026 - 18:01 | 2          ac         3          16G       
+[ECMWF-INFO -sbatch] -   15.07.2026 - 18:01 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] - ['/usr/bin/sbatch', '--cpus-per-task=2', '--job-name=catrine_ifs_processing', '--ntasks=1', '--time=10:00:00', '--mem=16GB', '--qos=nf', '--licenses=h2resw01', '--export=EC_user_time_limit=10:00:00', '/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/run_catrine_j7y2.sh']
+[ECMWF-INFO -sbatch] - sbatch executed on ac
+[ECMWF-INFO -sbatch] - Job queued on ac using method local
+[ECMWF-INFO -sbatch] - Submitted batch job 39830144
+[ECMWF-INFO -ecprofile] /usr/bin/bash NON_INTERACTIVE on ac6-159 at 20260717_121349.440, PID: 1569909, JOBID: 39830144
+[ECMWF-INFO -ecprofile] $SCRATCH=/ec/res4/scratch/paaa
+[ECMWF-INFO -ecprofile] $PERM=/perm/paaa
+[ECMWF-INFO -ecprofile] $HPCPERM=/ec/res4/hpcperm/paaa
+[ECMWF-INFO -ecprofile] $TMPDIR=/etc/ecmwf/ssd/ssd1/tmpdirs/paaa.39830144
+[ECMWF-INFO -ecprofile] $SCRATCHDIR=/ec/res4/scratchdir/paaa/0/39830144
+/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_*_0.nc
+#### Running Mars retrieval for j7y2 ml ####
+Submitted batch job 39830174
+#### Come back after Mars extraction is done. ####
+[ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
+[ECMWF-INFO -ecepilog] This is the ECMWF job Epilogue
+[ECMWF-INFO -ecepilog] +++ Please report issues using the Support portal +++
+[ECMWF-INFO -ecepilog] +++ https://support.ecmwf.int                     +++
+[ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
+[ECMWF-INFO -ecepilog] Run at 2026-07-17T12:13:49 on ac
+[ECMWF-INFO -ecepilog] JobName                   : catrine_ifs_processing
+[ECMWF-INFO -ecepilog] JobID                     : 39830144
+[ECMWF-INFO -ecepilog] Submit                    : 2026-07-17T12:13:43
+[ECMWF-INFO -ecepilog] Start                     : 2026-07-17T12:13:46
+[ECMWF-INFO -ecepilog] End                       : 2026-07-17T12:13:49
+[ECMWF-INFO -ecepilog] QueuedTime                : 3.0
+[ECMWF-INFO -ecepilog] ElapsedRaw                : 3
+[ECMWF-INFO -ecepilog] ExitCode                  : 0:0
+[ECMWF-INFO -ecepilog] DerivedExitCode           : 0:0
+[ECMWF-INFO -ecepilog] State                     : COMPLETED
+[ECMWF-INFO -ecepilog] Account                   : ecrdmopp
+[ECMWF-INFO -ecepilog] QOS                       : nf
+[ECMWF-INFO -ecepilog] User                      : paaa
+[ECMWF-INFO -ecepilog] StdOut                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-39830144.out
+[ECMWF-INFO -ecepilog] StdErr                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-39830144.out
+[ECMWF-INFO -ecepilog] NNodes                    : 1
+[ECMWF-INFO -ecepilog] NCPUS                     : 2
+[ECMWF-INFO -ecepilog] SBU                       : 0.014
+[ECMWF-INFO -ecepilog] jobtag                    : paaa-catrine_if_processing-1x2-/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-_JOBID_.out
+[ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
+
