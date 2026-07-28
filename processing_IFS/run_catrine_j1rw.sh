@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --time=10:00:00 # days
+#SBATCH --time=23:00:00
 #SBATCH --job-name=catrine_ifs_processing
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2 # Number of CPU cores (do I actually need 2?)
@@ -32,8 +32,8 @@ lbud23="False"
 levitrac="False"
 lead_time="0"
 stream="oper" # oper/lwda
-force_extract="True"  # Set to "True" to re-run MARS extraction even if files already exist
-single_day="0515" # '0515' / False
+force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
+single_day="False" # '0515' / False
 #############################################
 #############################################
 # if [ "$levels" = "srf" ]; then

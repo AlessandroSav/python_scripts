@@ -4,7 +4,7 @@
 [ECMWF-INFO -sbatch] -  +++ https://support.ecmwf.int                     +++
 [ECMWF-INFO -sbatch] -  /usr/local/bin/ecsbatch: size: 54473, mtime: Mon Jun 29 15:34:27 2026
 [ECMWF-INFO -sbatch] - -------------------------------------------------------------------------------------
-[ECMWF-INFO -sbatch] - Time at submit: Fri Jul 17 13:48:22 2026 (1784296102.1930845) on ac6-102.bullx:/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS
+[ECMWF-INFO -sbatch] - Time at submit: Tue Jul 28 08:05:43 2026 (1785225943.2303715) on ac6-100.bullx:/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS
 [ECMWF-INFO -sbatch] - --- SLURM VARIABLES ---
 [ECMWF-INFO -sbatch] - EC_CLUSTER=ac
 [ECMWF-INFO -sbatch] - SLURM_EXPORT_ENV=ALL
@@ -29,9 +29,15 @@
 [ECMWF-INFO -sbatch] - No qos requested, assuming qos=nf
 [ECMWF-INFO -sbatch] - jobtag: paaa-catrine_if_processing-1x2-/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-_JOBID_.out
 [ECMWF-INFO -sbatch] - ------------------------------
-[ECMWF-INFO -sbatch] - Average Walltime 329 with a Standard Deviation 679
+[ECMWF-INFO -sbatch] - Average Walltime 429 with a Standard Deviation 762
 [ECMWF-INFO -sbatch] - Runtime history
 [ECMWF-INFO -sbatch] -   Date               | Cores   Cluster   Walltime       Mem
+[ECMWF-INFO -sbatch] -   28.07.2026 - 07:09 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   27.07.2026 - 08:21 | 2          ac         4          16G       
+[ECMWF-INFO -sbatch] -   21.07.2026 - 08:45 | 2          ac         18         16G       
+[ECMWF-INFO -sbatch] -   21.07.2026 - 08:42 | 2          ac         21         16G       
+[ECMWF-INFO -sbatch] -   17.07.2026 - 14:21 | 2          ac         1976       16G       
+[ECMWF-INFO -sbatch] -   17.07.2026 - 13:50 | 2          ac         3          16G       
 [ECMWF-INFO -sbatch] -   17.07.2026 - 12:13 | 2          ac         3          16G       
 [ECMWF-INFO -sbatch] -   17.07.2026 - 09:15 | 2          ac         1925       16G       
 [ECMWF-INFO -sbatch] -   16.07.2026 - 15:46 | 2          ac         3          16G       
@@ -46,144 +52,123 @@
 [ECMWF-INFO -sbatch] -   16.07.2026 - 09:56 | 2          ac         910        16G       
 [ECMWF-INFO -sbatch] -   16.07.2026 - 09:56 | 2          ac         4          16G       
 [ECMWF-INFO -sbatch] -   16.07.2026 - 09:54 | 2          ac         4          16G       
-[ECMWF-INFO -sbatch] -   16.07.2026 - 09:50 | 2          ac         4          16G       
-[ECMWF-INFO -sbatch] -   15.07.2026 - 18:32 | 2          ac         2          16G       
-[ECMWF-INFO -sbatch] -   15.07.2026 - 18:31 | 2          ac         3          16G       
-[ECMWF-INFO -sbatch] -   15.07.2026 - 18:31 | 2          ac         3          16G       
-[ECMWF-INFO -sbatch] -   15.07.2026 - 18:02 | 2          ac         4          16G       
-[ECMWF-INFO -sbatch] -   15.07.2026 - 18:01 | 2          ac         3          16G       
 [ECMWF-INFO -sbatch] - ['/usr/bin/sbatch', '--cpus-per-task=2', '--job-name=catrine_ifs_processing', '--ntasks=1', '--time=10:00:00', '--mem=16GB', '--qos=nf', '--licenses=h2resw01', '--export=EC_user_time_limit=10:00:00', '/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/run_catrine_j7y2.sh']
 [ECMWF-INFO -sbatch] - sbatch executed on ac
 [ECMWF-INFO -sbatch] - Job queued on ac using method local
-[ECMWF-INFO -sbatch] - Submitted batch job 39860174
-[ECMWF-INFO -ecprofile] /usr/bin/bash NON_INTERACTIVE on ac6-168 at 20260717_134841.298, PID: 3001080, JOBID: 39860174
+[ECMWF-INFO -sbatch] - Submitted batch job 34262014
+[ECMWF-INFO -ecprofile] /usr/bin/bash NON_INTERACTIVE on ac6-185 at 20260728_080614.717, PID: 2504124, JOBID: 34262014
 [ECMWF-INFO -ecprofile] $SCRATCH=/ec/res4/scratch/paaa
 [ECMWF-INFO -ecprofile] $PERM=/perm/paaa
 [ECMWF-INFO -ecprofile] $HPCPERM=/ec/res4/hpcperm/paaa
-[ECMWF-INFO -ecprofile] $TMPDIR=/etc/ecmwf/ssd/ssd1/tmpdirs/paaa.39860174
-[ECMWF-INFO -ecprofile] $SCRATCHDIR=/ec/res4/scratchdir/paaa/6/39860174
-/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_*_0.nc
-#### Data already extracted and available at /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220515_0.nc (and others) ####
+[ECMWF-INFO -ecprofile] $TMPDIR=/etc/ecmwf/ssd/ssd1/tmpdirs/paaa.34262014
+[ECMWF-INFO -ecprofile] $SCRATCHDIR=/ec/res4/scratchdir/paaa/6/34262014
+/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_*_0.nc
+#### Data already extracted and available at /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220515_0.nc (and others) ####
 #### Running S1: Rename and deaccumulate ####
-Looking for data in /scratch/paaa/IFS/HPB_tower/j7y2
-Found these files for lead time 0 (+12): ['/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220515_0.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220515_12.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220516_0.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220516_12.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220517_0.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220517_12.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220518_0.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220518_12.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220519_0.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220519_12.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220520_0.nc', '/scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220520_12.nc']
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220515_0.nc
+Looking for data in /scratch/paaa/IFS/netherlands/j7y2
+Found these files for lead time 0 (+12): ['/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220515_0.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220515_12.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220516_0.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220516_12.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220517_0.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220517_12.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220518_0.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220518_12.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220519_0.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220519_12.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220520_0.nc', '/scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220520_12.nc']
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220515_0.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220515_12.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220515_12.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220516_0.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220516_0.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220516_12.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220516_12.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220517_0.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220517_0.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220517_12.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220517_12.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220518_0.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220518_0.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220518_12.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220518_12.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220519_0.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220519_0.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220519_12.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220519_12.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220520_0.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220520_0.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
-Processing file /scratch/paaa/IFS/HPB_tower/j7y2/j7y2_dryMF_49r2b_ml_20220520_12.nc
+Processing file /scratch/paaa/IFS/netherlands/j7y2/j7y2_dryMF_49r2b_srf_20220520_12.nc
 Time step between consecutive records: 1 hours hour
+Variable q not found in dataset.
+Variable clwc not found in dataset.
 Variable ra not found in dataset.
 Variable co not found in dataset.
 Deaccumulating...
 Finished processing files________
 Saving...
-Dataset saved to: /perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_ml_t0.nc
+Dataset saved to: /perm/paaa/IFS/netherlands/fc/j7y2_dryMF_49r2b_srf_t0.nc
 Done.
-#### Running S2: Convert from model levels to height ####
-Processing j7y2_dryMF_49r2b .
-Processing lead time 0 .
-Reading these files:
-['/perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_ml_t0.nc']
-Using lnsp to compute pressure levels.
-time: 2022-05-15
-time: 2022-05-16
-time: 2022-05-16
-time: 2022-05-17
-time: 2022-05-17
-time: 2022-05-18
-time: 2022-05-18
-time: 2022-05-19
-time: 2022-05-19
-time: 2022-05-20
-time: 2022-05-20
-time: 2022-05-21
-Dataset saved to: /perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_z_t0.nc .
-Done.
+Skipping S2 (not ml level).
 #### Running S3: Interpolate to single location ####
-using height instead of model levels for interpolation to single location
 Reading these files:
-['/perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_z_t0.nc']
-Check units for co2flx_dyn: g m$^{-2}$ h$^{-1}$.
-converting g m$^{-2}$ h$^{-1}$ to PPM m/s for variable co2flx_dyn, assumption on density, careful!
-rho near the surface: [[1.16813024 1.17144714 1.17357352 1.17463937 1.17444691 1.1732444 ]
- [1.16209106 1.16291175 1.16497042 1.16643229 1.16668097 1.16802057]
- [1.14868861 1.14941523 1.14938562 1.15072801 1.15346654 1.15592191]
- [1.12747119 1.1230424  1.12298754 1.12407249 1.12700814 1.13135482]
- [1.09182596 1.08685611 1.08488845 1.08572635 1.08868848 1.09313172]
- [1.05010208 1.04522517 1.04329249 1.04561923 1.04861412 1.05152517]]
-Check units for co2flx_diff: g m$^{-2}$ h$^{-1}$.
-converting g m$^{-2}$ h$^{-1}$ to PPM m/s for variable co2flx_diff, assumption on density, careful!
-rho near the surface: [[1.16813024 1.17144714 1.17357352 1.17463937 1.17444691 1.1732444 ]
- [1.16209106 1.16291175 1.16497042 1.16643229 1.16668097 1.16802057]
- [1.14868861 1.14941523 1.14938562 1.15072801 1.15346654 1.15592191]
- [1.12747119 1.1230424  1.12298754 1.12407249 1.12700814 1.13135482]
- [1.09182596 1.08685611 1.08488845 1.08572635 1.08868848 1.09313172]
- [1.05010208 1.04522517 1.04329249 1.04561923 1.04861412 1.05152517]]
-Check units for co2flx_conv: g m$^{-2}$ h$^{-1}$.
-converting g m$^{-2}$ h$^{-1}$ to PPM m/s for variable co2flx_conv, assumption on density, careful!
-rho near the surface: [[1.16813024 1.17144714 1.17357352 1.17463937 1.17444691 1.1732444 ]
- [1.16209106 1.16291175 1.16497042 1.16643229 1.16668097 1.16802057]
- [1.14868861 1.14941523 1.14938562 1.15072801 1.15346654 1.15592191]
- [1.12747119 1.1230424  1.12298754 1.12407249 1.12700814 1.13135482]
- [1.09182596 1.08685611 1.08488845 1.08572635 1.08868848 1.09313172]
- [1.05010208 1.04522517 1.04329249 1.04561923 1.04861412 1.05152517]]
-Units unknown for variable p
-Computing total tendencies .
-Saving /perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_z_t0_processed.nc .
-Saving /perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_z_t0_slab.nc .
-Saving /perm/paaa/IFS/HPB_tower/fc/j7y2_dryMF_49r2b_z_t0_HPB_tower.nc .
+['/perm/paaa/IFS/netherlands/fc/j7y2_dryMF_49r2b_srf_t0.nc']
+Cannot convert kg m**-2 to PPM for variable aco2nee
+Cannot convert kg m**-2 to PPM for variable aco2gpp
+Cannot convert kg m**-2 to PPM for variable aco2rec
+Cannot convert kg m**-2 s**-1 to PPM for variable fco2nee
+Cannot convert kg m**-2 s**-1 to PPM for variable fco2gpp
+Cannot convert kg m**-2 s**-1 to PPM for variable fco2rec
+Saving /perm/paaa/IFS/netherlands/fc/j7y2_dryMF_49r2b_srf_t0_processed.nc .
+Saving /perm/paaa/IFS/netherlands/fc/j7y2_dryMF_49r2b_srf_t0_slab.nc .
+Saving /perm/paaa/IFS/netherlands/fc/j7y2_dryMF_49r2b_srf_t0_cabauw.nc .
+Saving /perm/paaa/IFS/netherlands/fc/j7y2_dryMF_49r2b_srf_t0_loobos.nc .
 Done_____________
 All scripts completed successfully.
 [ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
@@ -191,25 +176,25 @@ All scripts completed successfully.
 [ECMWF-INFO -ecepilog] +++ Please report issues using the Support portal +++
 [ECMWF-INFO -ecepilog] +++ https://support.ecmwf.int                     +++
 [ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
-[ECMWF-INFO -ecepilog] Run at 2026-07-17T14:21:33 on ac
+[ECMWF-INFO -ecepilog] Run at 2026-07-28T08:06:30 on ac
 [ECMWF-INFO -ecepilog] JobName                   : catrine_ifs_processing
-[ECMWF-INFO -ecepilog] JobID                     : 39860174
-[ECMWF-INFO -ecepilog] Submit                    : 2026-07-17T13:48:22
-[ECMWF-INFO -ecepilog] Start                     : 2026-07-17T13:48:37
-[ECMWF-INFO -ecepilog] End                       : 2026-07-17T14:21:33
-[ECMWF-INFO -ecepilog] QueuedTime                : 15.0
-[ECMWF-INFO -ecepilog] ElapsedRaw                : 1976
+[ECMWF-INFO -ecepilog] JobID                     : 34262014
+[ECMWF-INFO -ecepilog] Submit                    : 2026-07-28T08:05:43
+[ECMWF-INFO -ecepilog] Start                     : 2026-07-28T08:06:10
+[ECMWF-INFO -ecepilog] End                       : 2026-07-28T08:06:30
+[ECMWF-INFO -ecepilog] QueuedTime                : 27.0
+[ECMWF-INFO -ecepilog] ElapsedRaw                : 20
 [ECMWF-INFO -ecepilog] ExitCode                  : 0:0
 [ECMWF-INFO -ecepilog] DerivedExitCode           : 0:0
 [ECMWF-INFO -ecepilog] State                     : COMPLETED
 [ECMWF-INFO -ecepilog] Account                   : ecrdmopp
 [ECMWF-INFO -ecepilog] QOS                       : nf
 [ECMWF-INFO -ecepilog] User                      : paaa
-[ECMWF-INFO -ecepilog] StdOut                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-39860174.out
-[ECMWF-INFO -ecepilog] StdErr                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-39860174.out
+[ECMWF-INFO -ecepilog] StdOut                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-34262014.out
+[ECMWF-INFO -ecepilog] StdErr                    : /etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-34262014.out
 [ECMWF-INFO -ecepilog] NNodes                    : 1
 [ECMWF-INFO -ecepilog] NCPUS                     : 2
-[ECMWF-INFO -ecepilog] SBU                       : 9.366
+[ECMWF-INFO -ecepilog] SBU                       : 0.095
 [ECMWF-INFO -ecepilog] jobtag                    : paaa-catrine_if_processing-1x2-/etc/ecmwf/nfs/dh1_home_a/paaa/python_scripts/processing_IFS/slurm-_JOBID_.out
 [ECMWF-INFO -ecepilog] ----------------------------------------------------------------------------------------------------
 

@@ -1,0 +1,1 @@
+retrieve,class=rd,type=fc,date=20220515/to/20220520,expver=j7y2,param=129.128/130.128/131/132,step=1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21/22/23/24,stream=oper,time=0,grid=0.2/0.2,area=70/-20/30/50,levtype=pl,levelist=500/850,target="/scratch/paaa/glob_co2_compare/j7y2_pl_europe_20220515to20220520.grib"
