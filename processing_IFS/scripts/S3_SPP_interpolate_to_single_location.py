@@ -9,11 +9,16 @@ UTC_to_LT = +2  # hours
 
 
 def inverse_distance_weighting(ds: xr.Dataset, target_lat: float, target_lon: float) -> xr.Dataset:
-    lat = ds["latitude"]
-    lon = ds["longitude"]
-    dist = np.sqrt((lat - target_lat) ** 2 + (lon - target_lon) ** 2)
-    dist = dist.where(dist != 0, other=1e-10)
-    weights = 1.0 / dist
+    # Get latitude and longitude arrays (assumed to be 1D or 2D broadcastable)
+    lat = ds['latitude']
+    lon = ds['longitude']
+    # Compute distance in degrees
+    dist = np.sqrt((lat - target_lat)**2 + (lon - target_lon)**2)
+    # If there is an exact match, return it directly
+    if (dist == 0).any():
+        return ds.where(dist == 0, drop=True)
+    # Otherwise perform inverse-distance weighting
+    weights = 1 / dist
     weights = weights / weights.sum(dim=("latitude", "longitude"))
     return ds.weighted(weights).mean(dim=("latitude", "longitude"))
 
@@ -43,7 +48,7 @@ def main() -> None:
     dir_in = f"/perm/paaa/IFS/{subdomain}/{exp_type}"
     in_path = os.path.join(dir_in, f"{exp_id}_{levels}_t{lead_time}.nc")
 
-    if subdomain == 'netherlands':
+    if subdomain == 'netherlands' or subdomain == 'netherlands_2':
         locations = [
             {"name": "cabauw", "lat": 51.971, "lon": 4.927, "z": [5, 60, 100, 180]},
             {"name": "loobos", "lat": 52.166, "lon": 5.744, "z": [24]},

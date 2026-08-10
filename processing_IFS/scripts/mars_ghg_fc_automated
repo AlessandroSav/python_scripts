@@ -74,6 +74,9 @@ echo "single_day: $single_day"
 if [[ "$subdomain" == "netherlands" ]]; then
   area='52.22/4.68/51.72/5.75'  # Cabauw + Loobos
   echo "area: $area"
+elif [[ "$subdomain" == "netherlands_2" ]]; then
+  area='52.5/4.8/51.5/5.8'  # Cabauw + Loobos
+  echo "area: $area"
 elif [[ "$subdomain" == "Cabauw" ]]; then
   area='52.22/4.68/51.72/5.18'  # Cabauw only
   echo "area: $area"
@@ -134,14 +137,12 @@ fi
 for d in "${days[@]}"; do
   for t in ${lead_time}  $((lead_time + 12)); do 
 
-    # Start fresh mm files
-    > mm_ml
-    > mm_sfc
-    # Remove any stale intermediate files from previous interrupted runs to prevent MARS appending
-    rm -f "mars_ml_${exp_name}.grb" "mars_srf_${exp_name}.grb"
-
     # Check for model level retrieval
     if [[ " $levels " =~ " ml " ]]; then
+      # Start fresh mm files
+      > mm_ml
+      # Remove any stale intermediate files from previous interrupted runs to prevent MARS appending
+      rm -f "mars_ml_${exp_name}.grb"
       echo "Model level selected"
       cat <<EOF >> mm_ml
 # First retrieve profiles
@@ -159,6 +160,7 @@ time=00:00:00,
 type=fc,
 grid=${grid},
 area=${area},
+interpolation=grid-box-average,
 target="mars_ml_${exp_name}.grb"
 EOF
       # Call MARS
@@ -172,6 +174,9 @@ EOF
 
     # Check for surface level retrieval
     if [[ " $levels " =~ " srf " ]]; then
+      # Start fresh mm files
+      > mm_sfc
+      rm -f "mars_srf_${exp_name}.grb"
       echo "Surface level selected"
       cat <<EOF >> mm_sfc
 # Second retrieve surface
@@ -188,6 +193,7 @@ time=00:00:00,
 type=fc,
 grid=${grid},
 area=${area},
+interpolation=grid-box-average,
 target="mars_srf_${exp_name}.grb"
 EOF
       # Call MARS
@@ -201,3 +207,5 @@ EOF
 
   done
 done
+
+echo "Done."

@@ -84,6 +84,9 @@ cd "$out_dir"
 if [[ "$subdomain" == "netherlands" ]]; then
   area='52.22/4.68/51.72/5.75'  # Cabauw + Loobos
   echo "area: $area"
+elif [[ "$subdomain" == "netherlands_2" ]]; then
+  area='52.5/4.8/51.5/5.8'  # Cabauw + Loobos
+  echo "area: $area"
 elif [[ "$subdomain" == "HPB_tower" ]] ; then
   area='48.3/10.5/47.3/11.5'
   echo "area: $area"
@@ -146,6 +149,7 @@ time=00:00:00,
 type=cf,
 grid=${grid},
 area=${area},
+interpolation=grid-box-average,
 target="${grb_cf}"
 EOF
       cat >"$req_pf" <<EOF
@@ -163,6 +167,7 @@ time=00:00:00,
 type=pf,
 grid=${grid},
 area=${area},
+interpolation=grid-box-average,
 target="${grb_pf}"
 EOF
     else
@@ -179,6 +184,7 @@ time=00:00:00,
 type=cf,
 grid=${grid},
 area=${area},
+interpolation=grid-box-average,
 target="${grb_cf}"
 EOF
       cat >"$req_pf" <<EOF
@@ -195,6 +201,7 @@ time=00:00:00,
 type=pf,
 grid=${grid},
 area=${area},
+interpolation=grid-box-average,
 target="${grb_pf}"
 EOF
     fi

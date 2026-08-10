@@ -1,0 +1,1454 @@
+[ECMWF-INFO -ecprofile] /usr/bin/bash NON_INTERACTIVE on ac6-170 at 20260807_091211.481, PID: 2689808, JOBID: 39352662
+[ECMWF-INFO -ecprofile] $SCRATCH=/ec/res4/scratch/paaa
+[ECMWF-INFO -ecprofile] $PERM=/perm/paaa
+[ECMWF-INFO -ecprofile] $HPCPERM=/ec/res4/hpcperm/paaa
+[ECMWF-INFO -ecprofile] $TMPDIR=/etc/ecmwf/ssd/ssd1/tmpdirs/paaa.39352662
+[ECMWF-INFO -ecprofile] $SCRATCHDIR=/ec/res4/scratchdir/paaa/6/39352662
+base_dir: /scratch/paaa/IFS/netherlands_2
+subdomain: netherlands_2
+exp_id: j7y2
+exp_name: dryMF_49r2b
+exp_type: fc
+levels: srf
+ldiagflx: False
+ldiagflx_49r2b: True
+ldiagghg: False
+levitrac: False
+lbud23: False
+lead_time: 0
+grid: 0.2/0.2
+year: 2022
+stream: oper
+single_day: False
+area: 52.5/4.8/51.5/5.8
+param_ml: 75/82/83/84/85/86/87/88/89/90/91/92/93/94/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/130/131/132/133/135/138/152/155/246/162100/162101/162104/162105/162106/162107/162109/210061/210062/210123/210181/217026
+Find your raw data in /scratch/paaa/IFS/netherlands_2/j7y2
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091213 - Welcome to MARS
+mars - INFO   - 20260807.091213 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091213 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091213 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091213 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091213 - package mir version: 1.23.9
+mars - INFO   - 20260807.091213 - package odc version: 1.6.3
+mars - INFO   - 20260807.091213 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091213 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091213 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091213 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220515,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091213 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220515,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091213 - Requesting 416 fields
+mars - INFO   - 20260807.091213 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091214 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091214 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091214 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091214 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091214 - Calling mars on 'marsrd-core', local port is 49223
+mars - INFO   - 20260807.091214 - Callback at address 10.100.192.170, port 49223
+mars - INFO   - 20260807.091214 - Mars client is on ac6-170.bullx (10.100.192.170) 49223
+mars - INFO   - 20260807.091214 - Mars server is on 10.112.4.10 52557
+mars - INFO   - 20260807.091214 - Server task is 9331 [marsrd]
+mars - INFO   - 20260807.091214 - Request cost: 364 fields, 417.788 Mbytes online, nodes: mvr008 [marsrd]
+mars - INFO   - 20260807.091214 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091214 - Transfering 438082305 bytes
+mars - INFO   - 20260807.091215 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - INFO   - 20260807.091216 - mmap count: 1 (+1), mmap size: 245.975 Mbytes (+245.975 Mbytes), mapped shared: 254.805 Mbytes (+245.977 Mbytes), malloc total: 61.809 Mbytes (+128 bytes), malloc free: 171.594 Kbytes (-128 bytes)Cache file /lus/h2resw01/cache/mir/weights/16/grid-box-average/3/R400-cf00bf9c1206305cdd0d2861e76931f3-89.8279:0:-89.8279:359.777/LL-0.2x0.2-52.5:4.8:51.5:5.8-a56097c323b90dafa63d3906536f409a.mat does not exist
+mars - INFO   - 20260807.091216 - Creating cache file /lus/h2resw01/cache/mir/weights/16/grid-box-average/3/R400-cf00bf9c1206305cdd0d2861e76931f3-89.8279:0:-89.8279:359.777/LL-0.2x0.2-52.5:4.8:51.5:5.8-a56097c323b90dafa63d3906536f409a.mat
+mars - INFO   - 20260807.091216 - CacheManager creating file /lus/h2resw01/cache/mir/weights/16/grid-box-average/3/R400-cf00bf9c1206305cdd0d2861e76931f3-89.8279:0:-89.8279:359.777/LL-0.2x0.2-52.5:4.8:51.5:5.8-a56097c323b90dafa63d3906536f409a.mat
+mars - WARN   - 20260807.091219 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091219 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091219 - Last error is -43
+mars - ERROR  - 20260807.091219 - Expected 416, got 364.
+mars - ERROR  - 20260807.091219 - Request failed
+mars - INFO   - 20260807.091219 - Request time:  wall: 6 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091219 -   Read from network: 417.79 Mbyte(s) in < 1 sec [566.50 Mbyte/sec] 
+mars - INFO   - 20260807.091219 -   Visiting marsrd: wall: 5 sec 
+mars - INFO   - 20260807.091219 -   Post-processing: wall: 4 sec cpu: 3 sec 
+mars - INFO   - 20260807.091219 -   Writing to target file: 95.39 Kbyte(s) in < 1 sec [27.26 Mbyte/sec] 
+mars - INFO   - 20260807.091219 - Memory used: 156.21 Mbyte(s)
+mars - ERROR  - 20260807.091219 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220515_0.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091222 - Welcome to MARS
+mars - INFO   - 20260807.091222 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091222 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091222 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091222 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091222 - package mir version: 1.23.9
+mars - INFO   - 20260807.091222 - package odc version: 1.6.3
+mars - INFO   - 20260807.091222 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091222 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091222 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091222 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220515,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091222 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220515,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091222 - Requesting 416 fields
+mars - INFO   - 20260807.091222 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091222 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091222 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091222 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091222 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091222 - Calling mars on 'marsrd-core', local port is 33531
+mars - INFO   - 20260807.091222 - Callback at address 10.100.192.170, port 33531
+mars - INFO   - 20260807.091222 - Mars client is on ac6-170.bullx (10.100.192.170) 33531
+mars - INFO   - 20260807.091222 - Mars server is on 10.112.4.10 44293
+mars - INFO   - 20260807.091222 - Server task is 5168 [marsrd]
+mars - INFO   - 20260807.091222 - Request cost: 364 fields, 416.361 Mbytes online, nodes: mvr006 mvr008 [marsrd]
+mars - INFO   - 20260807.091222 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091223 - Transfering 436586265 bytes
+mars - INFO   - 20260807.091223 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091226 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091226 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091226 - Last error is -43
+mars - ERROR  - 20260807.091226 - Expected 416, got 364.
+mars - ERROR  - 20260807.091226 - Request failed
+mars - INFO   - 20260807.091226 - Request time:  wall: 4 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091226 -   Read from network: 416.36 Mbyte(s) in < 1 sec [605.22 Mbyte/sec] 
+mars - INFO   - 20260807.091226 -   Visiting marsrd: wall: 4 sec 
+mars - INFO   - 20260807.091226 -   Post-processing: wall: 3 sec cpu: 3 sec 
+mars - INFO   - 20260807.091226 -   Writing to target file: 95.39 Kbyte(s) in < 1 sec [24.50 Mbyte/sec] 
+mars - INFO   - 20260807.091226 - Memory used: 140.02 Mbyte(s)
+mars - ERROR  - 20260807.091226 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220515_12.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091228 - Welcome to MARS
+mars - INFO   - 20260807.091228 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091228 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091228 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091228 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091228 - package mir version: 1.23.9
+mars - INFO   - 20260807.091228 - package odc version: 1.6.3
+mars - INFO   - 20260807.091228 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091228 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091228 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091228 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220516,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091228 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220516,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091228 - Requesting 416 fields
+mars - INFO   - 20260807.091228 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091229 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091229 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091229 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091229 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091229 - Calling mars on 'marsrd-core', local port is 57349
+mars - INFO   - 20260807.091229 - Callback at address 10.100.192.170, port 57349
+mars - INFO   - 20260807.091229 - Mars client is on ac6-170.bullx (10.100.192.170) 57349
+mars - INFO   - 20260807.091229 - Mars server is on 10.112.4.10 34441
+mars - INFO   - 20260807.091229 - Server task is 7121 [marsrd]
+mars - INFO   - 20260807.091229 - Request cost: 364 fields, 417.754 Mbytes on 1 tape, nodes: hpss, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091229 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091344 - Transfering 438047300 bytes
+mars - INFO   - 20260807.091344 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091348 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091348 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091348 - Last error is -43
+mars - ERROR  - 20260807.091348 - Expected 416, got 364.
+mars - ERROR  - 20260807.091348 - Request failed
+mars - INFO   - 20260807.091348 - Request time:  wall: 1 min 19 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091348 -   Read from network: 417.75 Mbyte(s) in < 1 sec [1.28 Gbyte/sec] 
+mars - INFO   - 20260807.091348 -   Processing in marsrd: wall: 1 min 15 sec 
+mars - INFO   - 20260807.091348 -   Visiting marsrd: wall: 1 min 19 sec 
+mars - INFO   - 20260807.091348 -   Post-processing: wall: 3 sec cpu: 2 sec 
+mars - INFO   - 20260807.091348 -   Writing to target file: 95.51 Kbyte(s) in < 1 sec [26.02 Mbyte/sec] 
+mars - INFO   - 20260807.091348 - Memory used: 140.24 Mbyte(s)
+mars - ERROR  - 20260807.091348 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220516_0.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091350 - Welcome to MARS
+mars - INFO   - 20260807.091350 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091350 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091350 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091350 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091350 - package mir version: 1.23.9
+mars - INFO   - 20260807.091350 - package odc version: 1.6.3
+mars - INFO   - 20260807.091350 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091350 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091350 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091350 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220516,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091350 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220516,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091350 - Requesting 416 fields
+mars - INFO   - 20260807.091350 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091350 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091350 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091350 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091350 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091350 - Calling mars on 'marsrd-core', local port is 33995
+mars - INFO   - 20260807.091350 - Callback at address 10.100.192.170, port 33995
+mars - INFO   - 20260807.091355 - Mars client is on ac6-170.bullx (10.100.192.170) 33995
+mars - INFO   - 20260807.091355 - Mars server is on 10.112.4.10 48541
+mars - INFO   - 20260807.091355 - Server task is 4955 [marsrd]
+mars - INFO   - 20260807.091355 - Request cost: 364 fields, 32.1304 Mbytes online, 385.035 Mbytes on 1 tape, nodes: hpss mvr014, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091355 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091631 - Transfering 437430141 bytes
+mars - INFO   - 20260807.091632 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091635 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091635 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091635 - Last error is -43
+mars - ERROR  - 20260807.091635 - Expected 416, got 364.
+mars - ERROR  - 20260807.091635 - Request failed
+mars - INFO   - 20260807.091635 - Request time:  wall: 2 min 45 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091635 -   Read from network: 417.17 Mbyte(s) in < 1 sec [656.90 Mbyte/sec] 
+mars - INFO   - 20260807.091635 -   Processing in marsrd: wall: 2 min 41 sec 
+mars - INFO   - 20260807.091635 -   Visiting marsrd: wall: 2 min 45 sec 
+mars - INFO   - 20260807.091635 -   Post-processing: wall: 3 sec cpu: 2 sec 
+mars - INFO   - 20260807.091635 -   Writing to target file: 95.74 Kbyte(s) in < 1 sec [26.94 Mbyte/sec] 
+mars - INFO   - 20260807.091635 - Memory used: 140.30 Mbyte(s)
+mars - ERROR  - 20260807.091635 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220516_12.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091637 - Welcome to MARS
+mars - INFO   - 20260807.091637 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091637 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091637 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091637 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091637 - package mir version: 1.23.9
+mars - INFO   - 20260807.091637 - package odc version: 1.6.3
+mars - INFO   - 20260807.091637 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091637 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091637 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091637 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220517,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091637 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220517,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091637 - Requesting 416 fields
+mars - INFO   - 20260807.091637 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091638 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091638 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091638 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091638 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091638 - Calling mars on 'marsrd-core', local port is 40189
+mars - INFO   - 20260807.091638 - Callback at address 10.100.192.170, port 40189
+mars - INFO   - 20260807.091638 - Mars client is on ac6-170.bullx (10.100.192.170) 40189
+mars - INFO   - 20260807.091638 - Mars server is on 10.112.4.10 49915
+mars - INFO   - 20260807.091638 - Server task is 4955 [marsrd]
+mars - INFO   - 20260807.091638 - Request cost: 364 fields, 418.259 Mbytes on 1 tape, nodes: hpss, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091638 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091724 - Transfering 438576038 bytes
+mars - INFO   - 20260807.091725 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091728 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091728 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091728 - Last error is -43
+mars - ERROR  - 20260807.091728 - Expected 416, got 364.
+mars - ERROR  - 20260807.091728 - Request failed
+mars - INFO   - 20260807.091728 - Request time:  wall: 50 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091728 -   Read from network: 418.26 Mbyte(s) in < 1 sec [1.07 Gbyte/sec] 
+mars - INFO   - 20260807.091728 -   Processing in marsrd: wall: 47 sec 
+mars - INFO   - 20260807.091728 -   Visiting marsrd: wall: 50 sec 
+mars - INFO   - 20260807.091728 -   Post-processing: wall: 2 sec cpu: 2 sec 
+mars - INFO   - 20260807.091728 -   Writing to target file: 95.62 Kbyte(s) in < 1 sec [30.72 Mbyte/sec] 
+mars - INFO   - 20260807.091728 - Memory used: 140.31 Mbyte(s)
+mars - ERROR  - 20260807.091728 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220517_0.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091730 - Welcome to MARS
+mars - INFO   - 20260807.091730 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091730 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091730 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091730 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091730 - package mir version: 1.23.9
+mars - INFO   - 20260807.091730 - package odc version: 1.6.3
+mars - INFO   - 20260807.091730 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091730 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091730 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091730 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220517,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091730 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220517,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091730 - Requesting 416 fields
+mars - INFO   - 20260807.091730 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091730 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091730 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091730 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091730 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091730 - Calling mars on 'marsrd-core', local port is 43865
+mars - INFO   - 20260807.091730 - Callback at address 10.100.192.170, port 43865
+mars - INFO   - 20260807.091732 - Mars client is on ac6-170.bullx (10.100.192.170) 43865
+mars - INFO   - 20260807.091732 - Mars server is on 10.112.4.10 50389
+mars - INFO   - 20260807.091732 - Server task is 1782 [marsrd]
+mars - INFO   - 20260807.091732 - Request cost: 364 fields, 32.1484 Mbytes online, 385.366 Mbytes on 1 tape, nodes: hpss mvr013, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091732 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091738 - Transfering 437795333 bytes
+mars - INFO   - 20260807.091738 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091741 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091741 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091741 - Last error is -43
+mars - ERROR  - 20260807.091741 - Expected 416, got 364.
+mars - ERROR  - 20260807.091741 - Request failed
+mars - INFO   - 20260807.091741 - Request time:  wall: 12 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091741 -   Read from network: 417.51 Mbyte(s) in < 1 sec [1.31 Gbyte/sec] 
+mars - INFO   - 20260807.091741 -   Processing in marsrd: wall: 8 sec 
+mars - INFO   - 20260807.091741 -   Visiting marsrd: wall: 11 sec 
+mars - INFO   - 20260807.091741 -   Post-processing: wall: 2 sec cpu: 2 sec 
+mars - INFO   - 20260807.091741 -   Writing to target file: 95.86 Kbyte(s) in < 1 sec [32.16 Mbyte/sec] 
+mars - INFO   - 20260807.091741 - Memory used: 140.33 Mbyte(s)
+mars - ERROR  - 20260807.091741 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220517_12.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091743 - Welcome to MARS
+mars - INFO   - 20260807.091743 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091743 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091743 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091743 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091743 - package mir version: 1.23.9
+mars - INFO   - 20260807.091743 - package odc version: 1.6.3
+mars - INFO   - 20260807.091743 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091743 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091743 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091743 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220518,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091743 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220518,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091743 - Requesting 416 fields
+mars - INFO   - 20260807.091743 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091744 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091744 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091744 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091744 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091744 - Calling mars on 'marsrd-core', local port is 37283
+mars - INFO   - 20260807.091744 - Callback at address 10.100.192.170, port 37283
+mars - INFO   - 20260807.091744 - Mars client is on ac6-170.bullx (10.100.192.170) 37283
+mars - INFO   - 20260807.091744 - Mars server is on 10.112.4.10 46495
+mars - INFO   - 20260807.091744 - Server task is 1902 [marsrd]
+mars - INFO   - 20260807.091744 - Request cost: 364 fields, 418.15 Mbytes on 1 tape, nodes: hpss, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091744 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091813 - Transfering 438462420 bytes
+mars - INFO   - 20260807.091813 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091817 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091817 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091817 - Last error is -43
+mars - ERROR  - 20260807.091817 - Expected 416, got 364.
+mars - ERROR  - 20260807.091817 - Request failed
+mars - INFO   - 20260807.091817 - Request time:  wall: 33 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091817 -   Read from network: 418.15 Mbyte(s) in < 1 sec [1.41 Gbyte/sec] 
+mars - INFO   - 20260807.091817 -   Processing in marsrd: wall: 29 sec 
+mars - INFO   - 20260807.091817 -   Visiting marsrd: wall: 33 sec 
+mars - INFO   - 20260807.091817 -   Post-processing: wall: 3 sec cpu: 2 sec 
+mars - INFO   - 20260807.091817 -   Writing to target file: 95.74 Kbyte(s) in < 1 sec [28.09 Mbyte/sec] 
+mars - INFO   - 20260807.091817 - Memory used: 140.04 Mbyte(s)
+mars - ERROR  - 20260807.091817 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220518_0.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091822 - Welcome to MARS
+mars - INFO   - 20260807.091822 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091822 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091822 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091822 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091822 - package mir version: 1.23.9
+mars - INFO   - 20260807.091822 - package odc version: 1.6.3
+mars - INFO   - 20260807.091822 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091822 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091822 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091822 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220518,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091822 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220518,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091822 - Requesting 416 fields
+mars - INFO   - 20260807.091822 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091822 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091822 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091822 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091822 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091822 - Calling mars on 'marsrd-core', local port is 38505
+mars - INFO   - 20260807.091822 - Callback at address 10.100.192.170, port 38505
+mars - INFO   - 20260807.091822 - Mars client is on ac6-170.bullx (10.100.192.170) 38505
+mars - INFO   - 20260807.091822 - Mars server is on 10.112.4.10 52341
+mars - INFO   - 20260807.091822 - Server task is 5337 [marsrd]
+mars - INFO   - 20260807.091822 - Request cost: 364 fields, 32.0864 Mbytes online, 385.579 Mbytes on 1 tape, nodes: hpss mvr000, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091822 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091828 - Transfering 437954074 bytes
+mars - INFO   - 20260807.091829 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091833 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091833 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091833 - Last error is -43
+mars - ERROR  - 20260807.091833 - Expected 416, got 364.
+mars - ERROR  - 20260807.091833 - Request failed
+mars - INFO   - 20260807.091833 - Request time:  wall: 11 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091833 -   Read from network: 417.67 Mbyte(s) in < 1 sec [1.17 Gbyte/sec] 
+mars - INFO   - 20260807.091833 -   Processing in marsrd: wall: 6 sec 
+mars - INFO   - 20260807.091833 -   Visiting marsrd: wall: 11 sec 
+mars - INFO   - 20260807.091833 -   Post-processing: wall: 4 sec cpu: 2 sec 
+mars - INFO   - 20260807.091833 -   Writing to target file: 95.98 Kbyte(s) in < 1 sec [28.15 Mbyte/sec] 
+mars - INFO   - 20260807.091833 - Memory used: 140.24 Mbyte(s)
+mars - ERROR  - 20260807.091833 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220518_12.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091835 - Welcome to MARS
+mars - INFO   - 20260807.091835 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091835 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091835 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091835 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091835 - package mir version: 1.23.9
+mars - INFO   - 20260807.091835 - package odc version: 1.6.3
+mars - INFO   - 20260807.091835 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091835 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091835 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091835 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220519,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091835 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220519,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091835 - Requesting 416 fields
+mars - INFO   - 20260807.091835 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091835 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091835 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091835 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091835 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091835 - Calling mars on 'marsrd-core', local port is 39487
+mars - INFO   - 20260807.091835 - Callback at address 10.100.192.170, port 39487
+mars - INFO   - 20260807.091835 - Mars client is on ac6-170.bullx (10.100.192.170) 39487
+mars - INFO   - 20260807.091835 - Mars server is on 10.112.4.10 40871
+mars - INFO   - 20260807.091835 - Server task is 5026 [marsrd]
+mars - INFO   - 20260807.091835 - Request cost: 364 fields, 418.771 Mbytes on 1 tape, nodes: hpss, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091835 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091913 - Transfering 439113206 bytes
+mars - INFO   - 20260807.091913 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091916 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091916 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091916 - Last error is -43
+mars - ERROR  - 20260807.091916 - Expected 416, got 364.
+mars - ERROR  - 20260807.091916 - Request failed
+mars - INFO   - 20260807.091916 - Request time:  wall: 41 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091916 -   Read from network: 418.77 Mbyte(s) in < 1 sec [1.48 Gbyte/sec] 
+mars - INFO   - 20260807.091916 -   Processing in marsrd: wall: 38 sec 
+mars - INFO   - 20260807.091916 -   Visiting marsrd: wall: 41 sec 
+mars - INFO   - 20260807.091916 -   Post-processing: wall: 2 sec cpu: 2 sec 
+mars - INFO   - 20260807.091916 -   Writing to target file: 95.86 Kbyte(s) in < 1 sec [29.61 Mbyte/sec] 
+mars - INFO   - 20260807.091916 - Memory used: 140.03 Mbyte(s)
+mars - ERROR  - 20260807.091916 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220519_0.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091918 - Welcome to MARS
+mars - INFO   - 20260807.091918 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091918 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091918 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091918 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091918 - package mir version: 1.23.9
+mars - INFO   - 20260807.091918 - package odc version: 1.6.3
+mars - INFO   - 20260807.091918 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091918 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091918 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091918 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220519,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091918 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220519,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091918 - Requesting 416 fields
+mars - INFO   - 20260807.091918 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091918 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091918 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091918 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091918 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091918 - Calling mars on 'marsrd-core', local port is 51687
+mars - INFO   - 20260807.091918 - Callback at address 10.100.192.170, port 51687
+mars - INFO   - 20260807.091918 - Mars client is on ac6-170.bullx (10.100.192.170) 51687
+mars - INFO   - 20260807.091918 - Mars server is on 10.112.4.10 60787
+mars - INFO   - 20260807.091918 - Server task is 139 [marsrd]
+mars - INFO   - 20260807.091918 - Request cost: 364 fields, 32.1724 Mbytes online, 385.411 Mbytes on 1 tape, nodes: hpss mvr013, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091918 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091928 - Transfering 437868071 bytes
+mars - INFO   - 20260807.091928 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091931 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091931 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091931 - Last error is -43
+mars - ERROR  - 20260807.091931 - Expected 416, got 364.
+mars - ERROR  - 20260807.091931 - Request failed
+mars - INFO   - 20260807.091931 - Request time:  wall: 13 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091931 -   Read from network: 417.58 Mbyte(s) in < 1 sec [1.31 Gbyte/sec] 
+mars - INFO   - 20260807.091931 -   Processing in marsrd: wall: 10 sec 
+mars - INFO   - 20260807.091931 -   Visiting marsrd: wall: 13 sec 
+mars - INFO   - 20260807.091931 -   Post-processing: wall: 2 sec cpu: 2 sec 
+mars - INFO   - 20260807.091931 -   Writing to target file: 95.74 Kbyte(s) in < 1 sec [23.19 Mbyte/sec] 
+mars - INFO   - 20260807.091931 - Memory used: 140.13 Mbyte(s)
+mars - ERROR  - 20260807.091931 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220519_12.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091933 - Welcome to MARS
+mars - INFO   - 20260807.091933 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091933 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091933 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091933 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091933 - package mir version: 1.23.9
+mars - INFO   - 20260807.091933 - package odc version: 1.6.3
+mars - INFO   - 20260807.091933 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091933 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091933 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091933 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220520,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=0/1/2/3/4/5/6/7/8/9/10/11/12,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091933 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220520,
+    TIME       = 0000,
+    STEP       = 0/1/2/3/4/5/6/7/8/9/10/11/12,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091933 - Requesting 416 fields
+mars - INFO   - 20260807.091933 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091933 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091933 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091933 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091933 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091933 - Calling mars on 'marsrd-core', local port is 50385
+mars - INFO   - 20260807.091933 - Callback at address 10.100.192.170, port 50385
+mars - INFO   - 20260807.091933 - Mars client is on ac6-170.bullx (10.100.192.170) 50385
+mars - INFO   - 20260807.091933 - Mars server is on 10.112.4.10 54501
+mars - INFO   - 20260807.091933 - Server task is 508 [marsrd]
+mars - INFO   - 20260807.091933 - Request cost: 364 fields, 418.479 Mbytes on 1 tape, nodes: hpss, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091933 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.091948 - Transfering 438806990 bytes
+mars - INFO   - 20260807.091949 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.091951 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.091951 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.091951 - Last error is -43
+mars - ERROR  - 20260807.091951 - Expected 416, got 364.
+mars - ERROR  - 20260807.091951 - Request failed
+mars - INFO   - 20260807.091951 - Request time:  wall: 19 sec  cpu: 3 sec 
+mars - INFO   - 20260807.091951 -   Read from network: 418.48 Mbyte(s) in < 1 sec [1.92 Gbyte/sec] 
+mars - INFO   - 20260807.091951 -   Processing in marsrd: wall: 15 sec 
+mars - INFO   - 20260807.091951 -   Visiting marsrd: wall: 18 sec 
+mars - INFO   - 20260807.091951 -   Post-processing: wall: 2 sec cpu: 2 sec 
+mars - INFO   - 20260807.091951 -   Writing to target file: 95.27 Kbyte(s) in < 1 sec [27.02 Mbyte/sec] 
+mars - INFO   - 20260807.091951 - Memory used: 140.31 Mbyte(s)
+mars - ERROR  - 20260807.091951 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220520_0.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.
+Surface level selected
+mars - WARN - 
+mars - WARN - 
+MIR environment variables:
+MIR_CACHE_PATH=/lus/h2resw01/cache:{FILE?/ec/cache.1}/cache:{FILE?/ec/cache.2}/cache
+MIR_LSM_NAMED=1km.climate.v013
+Using MARS binary: /usr/local/apps/mars/versions/6.34.7.1/bin/mars.bin
+mars - INFO   - 20260807.091953 - Welcome to MARS
+mars - INFO   - 20260807.091953 - MARS_HOME=/usr/local/apps/mars/configs/prod
+mars - INFO   - 20260807.091953 - MARS Client build stamp: 20260623091402
+mars - INFO   - 20260807.091953 - MARS Client bundle version: 6.34.7.1
+mars - INFO   - 20260807.091953 - package mars-client version: 6.34.7
+mars - INFO   - 20260807.091953 - package mir version: 1.23.9
+mars - INFO   - 20260807.091953 - package odc version: 1.6.3
+mars - INFO   - 20260807.091953 - package fdb version: 5.21.4
+mars - INFO   - 20260807.091953 - package metkit version: 1.18.3
+mars - INFO   - 20260807.091953 - package eckit version: 2.0.8
+mars - INFO   - 20260807.091953 - package eccodes version: 2.47.2
+# Second retrieve surface
+retrieve,
+anoffset=9,
+class=rd,
+date=20220520,
+expver=j7y2,
+levtype=sfc,
+param=146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+step=12/13/14/15/16/17/18/19/20/21/22/23/24,
+stream=oper,
+time=00:00:00,
+type=fc,
+grid=0.2/0.2,
+area=52.5/4.8/51.5/5.8,
+interpolation=grid-box-average,
+target="mars_srf_dryMF_49r2b.grb"
+
+mars - INFO   - 20260807.091954 - Processing request 1
+
+RETRIEVE,
+    CLASS      = RD,
+    TYPE       = FC,
+    STREAM     = OPER,
+    EXPVER     = j7y2,
+    REPRES     = SH,
+    LEVTYPE    = SFC,
+    PARAM      = 146.128/147.128/148.128/228.128/231.128/232.128/66.128/67.128/80.228/81.228/82.228/83.228/84.228/85.228/129.128/130/134.128/145.128/159.128/164.128/165.128/166.128/167.128/182.128/235.128/244.128/210061/210062/210123/210181/228104/228109,
+    DATE       = 20220520,
+    TIME       = 0000,
+    STEP       = 12/13/14/15/16/17/18/19/20/21/22/23/24,
+    DOMAIN     = G,
+    TARGET     = "mars_srf_dryMF_49r2b.grb",
+    RESOL      = AUTO,
+    INTERPOLATION = GRID-BOX-AVERAGE,
+    AREA       = 52.5/4.8/51.5/5.8,
+    GRID       = 0.2/0.2
+
+mars - INFO   - 20260807.091954 - Requesting 416 fields
+mars - INFO   - 20260807.091954 - FDB home /home/fdbprod
+mars - INFO   - 20260807.091954 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091954 - Current value is 32768 (32.00 K)
+mars - INFO   - 20260807.091954 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20260807.091954 - Current value is 43690 (42.67 K)
+mars - INFO   - 20260807.091954 - Calling mars on 'marsrd-core', local port is 46937
+mars - INFO   - 20260807.091954 - Callback at address 10.100.192.170, port 46937
+mars - INFO   - 20260807.091954 - Mars client is on ac6-170.bullx (10.100.192.170) 46937
+mars - INFO   - 20260807.091954 - Mars server is on 10.112.4.10 47159
+mars - INFO   - 20260807.091954 - Server task is 508 [marsrd]
+mars - INFO   - 20260807.091954 - Request cost: 364 fields, 32.1781 Mbytes online, 385.597 Mbytes on 1 tape, nodes: hpss mvr004, libraries: ibmlib09_70 [marsrd]
+mars - INFO   - 20260807.091954 - The efficiency of your requests in the last 12 hours is 100% [marsrd]
+mars - INFO   - 20260807.092000 - Transfering 438069215 bytes
+mars - INFO   - 20260807.092000 - ShToGridded: loading Legendre coefficients '/lus/h2resw01/cache/mir/legendre/4/local-T399-GaussianN400-OPT4189816c2e.leg'
+mars - WARN   - 20260807.092003 - Visiting database marsrd : expected 416, got 364
+mars - INFO   - 20260807.092003 - 364 fields have been interpolated on 'ac6-170.bullx'
+mars - ERROR  - 20260807.092003 - Last error is -43
+mars - ERROR  - 20260807.092003 - Expected 416, got 364.
+mars - ERROR  - 20260807.092003 - Request failed
+mars - INFO   - 20260807.092003 - Request time:  wall: 9 sec  cpu: 3 sec 
+mars - INFO   - 20260807.092003 -   Read from network: 417.78 Mbyte(s) in < 1 sec [1.56 Gbyte/sec] 
+mars - INFO   - 20260807.092003 -   Processing in marsrd: wall: 6 sec 
+mars - INFO   - 20260807.092003 -   Visiting marsrd: wall: 9 sec 
+mars - INFO   - 20260807.092003 -   Post-processing: wall: 2 sec cpu: 2 sec 
+mars - INFO   - 20260807.092003 -   Writing to target file: 95.51 Kbyte(s) in < 1 sec [23.61 Mbyte/sec] 
+mars - INFO   - 20260807.092003 - Memory used: 140.83 Mbyte(s)
+mars - ERROR  - 20260807.092003 - Some errors reported (last error -1)
+grib_to_netcdf: Version 2.47.0
+grib_to_netcdf: Processing input file 'mars_srf_dryMF_49r2b.grb'.
+grib_to_netcdf: Found 364 GRIB fields in 1 file.
+grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
+grib_to_netcdf: Creating netCDF file 'j7y2_dryMF_49r2b_srf_20220520_12.nc'
+grib_to_netcdf: NetCDF library version: 4.10.0 of Apr  9 2026 13:13:33 $
+grib_to_netcdf: Creating large (64 bit) file format.
+grib_to_netcdf: Defining variable 'sshf'.
+grib_to_netcdf: Defining variable 'slhf'.
+grib_to_netcdf: Defining variable 'chnk'.
+grib_to_netcdf: Defining variable 'tp'.
+grib_to_netcdf: Defining variable 'ishf'.
+grib_to_netcdf: Defining variable 'ie'.
+grib_to_netcdf: Defining variable 'aco2nee'.
+grib_to_netcdf: Defining variable 'aco2gpp'.
+grib_to_netcdf: Defining variable 'aco2rec'.
+grib_to_netcdf: Defining variable 'fco2nee'.
+grib_to_netcdf: Defining variable 'fco2gpp'.
+grib_to_netcdf: Defining variable 'fco2rec'.
+grib_to_netcdf: Defining variable 'z'.
+grib_to_netcdf: Defining variable 't'.
+grib_to_netcdf: Defining variable 'sp'.
+grib_to_netcdf: Defining variable 'bld'.
+grib_to_netcdf: Defining variable 'blh'.
+grib_to_netcdf: Defining variable 'tcc'.
+grib_to_netcdf: Defining variable 'u10'.
+grib_to_netcdf: Defining variable 'v10'.
+grib_to_netcdf: Defining variable 't2m'.
+grib_to_netcdf: Defining variable 'e'.
+grib_to_netcdf: Defining variable 'skt'.
+grib_to_netcdf: Defining variable 'fsr'.
+grib_to_netcdf: Defining variable 'co2'.
+grib_to_netcdf: Defining variable 'ch4'.
+grib_to_netcdf: Defining variable 'e_WLCH4'.
+grib_to_netcdf: Defining variable 'acc_e_WLCH4'.
+grib_to_netcdf: Done.

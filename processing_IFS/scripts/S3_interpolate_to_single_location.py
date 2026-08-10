@@ -38,7 +38,7 @@ print(files)
 ds    = xr.open_mfdataset(files,combine='by_coords')
 ################################################
 UTC_to_LT = +2 # hours
-if subdomain == 'netherlands':
+if subdomain == 'netherlands' or subdomain == 'netherlands_2':
     locations = [
         {
             "name": "cabauw",
@@ -72,16 +72,13 @@ def inverse_distance_weighting(ds,target_lat,target_lon):
     lon = ds['longitude']
     # Compute distance in degrees
     dist = np.sqrt((lat - target_lat)**2 + (lon - target_lon)**2)
-    # Avoid division by zero (e.g. exact match)
-    dist = dist.where(dist != 0, other=1e-10)
-    # Inverse distance weights
+    # If there is an exact match, return it directly
+    if (dist == 0).any():
+        return ds.where(dist == 0, drop=True)
+    # Otherwise perform inverse-distance weighting
     weights = 1 / dist
-    weights = weights / weights.sum(dim=('latitude', 'longitude'))
-    # Now apply the weights to average over lat/lon
-    # Broadcast weights to match dimensions
-    weighted = ds.weighted(weights)
-    data_idw = weighted.mean(dim=('latitude', 'longitude'))
-    return data_idw
+    weights = weights / weights.sum(dim=("latitude", "longitude"))
+    return ds.weighted(weights).mean(dim=("latitude", "longitude"))
 ################################################################################################
 
 ################################################
@@ -99,8 +96,8 @@ for var in ds.data_vars:
         if 'co2' in var and 'PPM' not in ds[var].attrs['units']:
             old_units = ds[var].attrs['units']
             if 'g kg$^{-1}$' in old_units:
-                ds[var] = mfun.concentration_to_ppm('co2', ds[var] / 1000)
-                ds[var].attrs['units'] = old_units.replace('g kg$^{-1}$', 'PPM')
+                ds[var + "_ppm"] = mfun.concentration_to_ppm('co2', ds[var] / 1000)
+                ds[var+ "_ppm"].attrs['units'] = old_units.replace('g kg$^{-1}$', 'PPM')
             # elif 'kg m**-2 s**-1' in old_units:
             #     print(f"converting {old_units} to PPM m/s for variable {var}, assumption on (surface?) density, careful!")
             #     rho = mfun.calc_rho(ds['sp'],ds['t'],ds['q']/1000)#kg/m3
@@ -115,8 +112,8 @@ for var in ds.data_vars:
                     print(f"rho near the surface: {rho.sel(height=0,method='nearest').isel(time=1).values}")
                 else:
                     rho = 1.225#kg/m3
-                ds[var] = mfun.concentration_to_ppm('co2', ds[var]/1000/rho)
-                ds[var].attrs['units'] = old_units.replace('g m$^{-2}$', 'PPM m')
+                ds[var + "_ppm"] = mfun.concentration_to_ppm('co2', ds[var]/1000/rho)
+                ds[var + "_ppm"].attrs['units'] = old_units.replace('g m$^{-2}$', 'PPM m')
             else: 
                 print(f"Cannot convert {old_units} to PPM for variable {var}")
     else:
@@ -146,6 +143,14 @@ if levels == 'z':
                                 ds[f'd{var}dt_conv'])
             # Copy over attributes (at least 'units')
             ds[var_name].attrs = ds[f'd{var}dt_dyn'].attrs.copy()
+        if f'd{var}dt_diff_ppm' in ds:
+            var_name = f'd{var}dt_tot_ppm'
+            if var_name not in ds:
+                ds[var_name] = (ds[f'd{var}dt_dyn_ppm'] +
+                                ds[f'd{var}dt_diff_ppm'] +
+                                ds[f'd{var}dt_conv_ppm'])
+                # Copy over attributes (at least 'units')
+                ds[var_name].attrs = ds[f'd{var}dt_dyn_ppm'].attrs.copy()
     
 
 ################################################

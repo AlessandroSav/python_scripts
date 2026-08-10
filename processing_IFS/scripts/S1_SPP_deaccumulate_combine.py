@@ -58,7 +58,7 @@ def main() -> None:
         # Deaccumulate accumulated surface flux variables within each file.
         # Must be done per-file: accumulation resets to zero at the start of each forecast day,
         # so a post-concat diff would produce a spurious negative jump at every 00 UTC boundary.
-        vars_to_deacc = [v for v in ["sshf", "slhf"] if v in ds_day]
+        vars_to_deacc = [v for v in ["sshf", "slhf","p216090"] if v in ds_day]
         if vars_to_deacc and len(ds_day["time"]) > 1:
             time_step_h = float(
                 (ds_day["time"].values[1] - ds_day["time"].values[0]).astype("timedelta64[h]").astype(float)

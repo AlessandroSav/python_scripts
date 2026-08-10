@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --time=23:00:00
+#SBATCH --time=23:30:00
 #SBATCH --job-name=catrine_ifs_processing
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2 # Number of CPU cores (do I actually need 2?)

@@ -17,9 +17,9 @@ source venv/test_env/bin/activate || { echo "Failed to activate virtual environm
 #############################################
 # Define the variables once here
 force_extract="False"  # Set to "True" to re-run MARS extraction even if files already exist
-subdomain="HPB_tower" # "netherlands"
-exp_id="j7v0"
-exp_name="SPP_all_30"
+subdomain="HPB_tower" # netherlands_2 / HPB_tower
+exp_id="j7v2" # j7v0-SPP_all_30 , j7v2-SPP_rkap_30 , j7v1-SPP_turb_30
+exp_name="SPP_rkap_30"
 number_members="30" #excluding control member
 levels="pl" # pl / srf 
 
